@@ -1,3 +1,90 @@
-body {
-    background: #999;
+/* css lib */
+
+.pt10{
+    padding-top:10px;
+}
+
+.pt20{
+    padding-top:20px;
+}
+
+.pt30{
+    padding-top:30px;
+}
+
+.pt40{
+    padding-top:40px;
+}
+
+.pt50{
+    padding-top:50px;
+}
+
+.pt60{
+    padding-top:60px;
+}
+
+/* END css lib */
+
+.content{
+    background-color:#F1F2F7 !important;
+}
+
+.animated{
+    min-height: 73vh !important;
+}
+
+#weatherWidget .currentDesc {
+    color: #ffffff!important;
+}
+
+.traffic-chart {
+    min-height: 335px;
+}
+
+#flotPie1  {
+    height: 150px;
+}
+
+#flotPie1 td {
+    padding:3px;
+}
+
+#flotPie1 table {
+    top: 20px!important;
+    right: -10px!important;
+}
+
+.chart-container {
+    display: table;
+    min-width: 270px ;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#flotLine5  {
+        height: 105px;
+}
+
+#flotBarChart {
+    height: 150px;
+}
+
+#cellPaiChart{
+    height: 160px;
+}
+
+.title{
+    text-transform: uppercase;
+    text-align:center;
+    margin-top:20px;
+    padding-bottom:20px;
+    margin-bottom:30px;
+    border-bottom:1px solid #e9e9e9;
+    color:#444;
+}
+
+.full-width{
+    width:100% !important;
 }
