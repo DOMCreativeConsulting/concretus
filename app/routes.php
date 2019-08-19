@@ -1,3 +1,5 @@
 <?php
 
-$router->get('framework', 'HomeController@index');
+$folder = 'concretus';
+
+$router->get("$folder", 'HomeController@index');
