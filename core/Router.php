@@ -36,8 +36,9 @@ class Router
                 ...explode('@', $this->routes[$requestType][$uri])
             );
         }
-
-        throw new Exception('No route defined for this URI.');
+        else{
+            view('404');
+        }
     }
 
     protected function callAction($controller, $action)

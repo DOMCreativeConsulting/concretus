@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\App;
 
-class UsersController
+class Controller
 {
     public function index()
     {
@@ -20,5 +20,10 @@ class UsersController
         ]);
 
         return redirect('users');
+    }
+
+    public function responderJSON($dados)
+    {
+        echo json_encode($dados);
     }
 }

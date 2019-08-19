@@ -12,13 +12,14 @@ class ComposerStaticInit8117f282e54685a11eb326c043fbb262
 
     public static $classMap = array (
         'App\\Controllers\\ClientesController' => __DIR__ . '/../..' . '/app/controllers/ClientesController.php',
+        'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/controllers/Controller.php',
         'App\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/controllers/HomeController.php',
-        'App\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/controllers/Controller.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
         'App\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
         'App\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
         'App\\Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
+        'App\\models\\Cliente' => __DIR__ . '/../..' . '/app/models/Cliente.php',
         'App\\models\\Model' => __DIR__ . '/../..' . '/app/models/Model.php',
         'ComposerAutoloaderInit8117f282e54685a11eb326c043fbb262' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
