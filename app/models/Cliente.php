@@ -2,6 +2,8 @@
 
 namespace App\models;
 
+use App\Core\App;
+
 class Cliente
 {
     public static $table = 'clientes';
@@ -14,14 +16,14 @@ class Cliente
     public $site;
     public $email;
 
-    public static function cadastrar($table, $values)
+    public static function cadastrar($values)
     {
-        App::get('database')->insert($table, $values);
+        App::get('database')->insert(static::$table, $values);
     }
 
-    public static function buscar($table, $where = NULL)
+    public static function encontrar($table, $where = NULL)
     {
-        App::get('database')->select($table, $where);
+        App::get('database')->selectWhere(static::$table, $where);
     }
 
 }

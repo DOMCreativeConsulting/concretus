@@ -14,9 +14,8 @@ class ClientesController extends Controller
 
     public function cadastrar()
     {
-        dd($_POST);
+        $cliente = $_POST;
         $clienteId = Cliente::cadastrar($cliente);
-        $cliente = Cliente::buscar(["id", $clienteId]);
 
         return $this->responderJSON($cliente);
     }

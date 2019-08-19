@@ -37,7 +37,21 @@ class QueryBuilder
 
             $statement->execute($parameters);
         } catch (\Exception $e) {
-            //
+            //echo 'erro ao cadastrar';
+            die($e->getMessage());
+        }
+    }
+
+    public function selectWhere($tabela, $campos = null)
+    {
+        $query = "select * from {$tabela}";
+        $query .= ($campos) ? " where " . implode(' = ', $campos) : "";
+        try {
+            $statement = $this->pdo->prepare($query);
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
         }
     }
     

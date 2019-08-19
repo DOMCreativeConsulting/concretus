@@ -24,30 +24,30 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <label for="nome">Cliente: </label>
-                                                <input type="text" class="form-control" name="nome">
+                                                <input type="text" placeholder="Nome do cliente" class="form-control" name="nome" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="cnpj">CNPJ: </label>
-                                                <input type="text" class="form-control" name="cnpj">
+                                                <input id="cnpj" placeholder="00 000 000/0000-00" type="text" class="form-control" name="cnpj" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="sirius">Código SIRIUS: </label>
-                                                <input type="text" class="form-control" name="sirius">
+                                                <input type="text" placeholder="000000" class="form-control" name="sirius" required>
                                             </div>
                                         </div>
 
                                         <div class="row pt20">
                                             <div class="col-md-4">
-                                                <label for="nome-responsavel">Nome Responsável: </label>
-                                                <input type="text" class="form-control" name="nome-responsavel">
+                                                <label for="responsavel">Nome Responsável: </label>
+                                                <input type="text" placeholder="Responsável pelo cliente" class="form-control" name="responsavel" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="site">Site: </label>
-                                                <input type="text" class="form-control" name="site">
+                                                <input type="text" placeholder="http://meusite.com.br/" class="form-control" name="site">
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="email">Email: </label>
-                                                <input type="email" class="form-control" name="email">
+                                                <input type="email" placeholder="exemplo@email.com" class="form-control" name="email" required>
                                             </div>
                                         </div>
 
@@ -56,6 +56,18 @@
                                                 <button type="submit" id="botao-cadastrar" class="btn btn-primary full-width">
                                                     Cadastrar
                                                 </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row pt30" id="sucesso">
+                                            <div class="col-md-12">
+                                                <p style="color:green;text-align:center;">Cliente cadastrado com sucesso!</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row pt30" id="erro">
+                                            <div class="col-md-12">
+                                                <p style="color:red;text-align:center;">Ocorreu um erro! Tente novamente mais tarde.</p>
                                             </div>
                                         </div>
 
