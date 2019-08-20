@@ -9,13 +9,13 @@
             <div class="animated fadeIn">
             
                 <div class="row">
-                    <div class="col-lg-8 offset-md-2">
+                    <div class="col-lg-10 offset-md-1">
                         <div class="card">
                             <div class="card-body">
                                 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h2 class="title"><i class="fa fa-users"></i> Cadastro de Clientes</h2>
+                                        <h2 class="title"><i class="fa fa-user-plus"></i> Cadastro de Clientes</h2>
                                     </div>
                                 </div>
 

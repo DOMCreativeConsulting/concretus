@@ -20,4 +20,16 @@ class ClientesController extends Controller
         return $this->responderJSON($cliente);
     }
 
+    public function administrar()
+    {
+        $clientes = Cliente::buscar();
+        return view('administracao-clientes', compact('clientes'));
+    }
+
+    public function clientes()
+    {
+        $clientes = Cliente::buscar();
+        return  $this->responderJSON($clientes);
+    }
+
 }

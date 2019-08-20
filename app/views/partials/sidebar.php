@@ -7,9 +7,10 @@
                     </li>
                     <li class="menu-title">Funções</li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Clientes</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-card-o"></i>Clientes</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-card-o"></i><a href="cadastro-clientes">Cadastrar</a></li>
+                            <li><i class="fa fa-user-plus"></i><a href="cadastro-clientes">Cadastrar</a></li>
+                            <li><i class="fa fa-users"></i><a href="administracao-clientes">Administrar</a></li>
                         </ul>
                     </li>
                 </ul>

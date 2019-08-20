@@ -26,4 +26,11 @@ class Cliente
         App::get('database')->selectWhere(static::$table, $where);
     }
 
+
+    public static function buscar()
+    {
+        $result = App::get('database')->selectAll(static::$table);
+        return $result;
+    }
+
 }
