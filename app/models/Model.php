@@ -2,17 +2,20 @@
 
 namespace App\models;
 
+use App\core\App;
+
 class Model
 {
-
-    public function store($table, $values)
+    
+    public static function numero($table)
     {
-        App::get('database')->insert($table, $values);
-    }
+        $result = App::get('database')->selectAll($table);
 
-    public function get($table, $where = NULL)
-    {
-        App::get('database')->select($table, $where);
+        $numero = 0;
+
+        foreach($result as $cliente){$numero++;}
+
+        return $numero;
     }
 
 }

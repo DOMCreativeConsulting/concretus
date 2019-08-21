@@ -17,8 +17,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Revenue</div>
+                                            <div class="stat-text"><span class="count">0</span></div>
+                                            <div class="stat-heading">Em Breve</div>
                                         </div>
                                     </div>
                                 </div>
@@ -35,8 +35,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Sales</div>
+                                            <div class="stat-text"><span class="count">0</span></div>
+                                            <div class="stat-heading">Em Breve</div>
                                         </div>
                                     </div>
                                 </div>
@@ -53,8 +53,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
-                                            <div class="stat-heading">Templates</div>
+                                            <div class="stat-text"><span class="count">0</span></div>
+                                            <div class="stat-heading">Em Breve</div>
                                         </div>
                                     </div>
                                 </div>
@@ -71,8 +71,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Clients</div>
+                                            <div class="stat-text"><span class="count"><?=$clientes; ?></span></div>
+                                            <div class="stat-heading">Clientes</div>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                         <div class="col-xl-8">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="box-title">Orders </h4>
+                                    <h4 class="box-title">Em Breve </h4>
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">
@@ -96,12 +96,12 @@
                                             <thead>
                                                 <tr>
                                                     <th class="serial">#</th>
-                                                    <th class="avatar">Avatar</th>
+                                                    <th class="avatar">Em Breve</th>
                                                     <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Product</th>
-                                                    <th>Quantity</th>
-                                                    <th>Status</th>
+                                                    <th>Em Breve</th>
+                                                    <th>Em Breve</th>
+                                                    <th>Em Breve</th>
+                                                    <th>Em Breve</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -114,7 +114,7 @@
                                                     </td>
                                                     <td> #5469 </td>
                                                     <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
+                                                    <td> <span class="product">Em Breve</span> </td>
                                                     <td><span class="count">231</span></td>
                                                     <td>
                                                         <span class="badge badge-complete">Complete</span>
@@ -129,7 +129,7 @@
                                                     </td>
                                                     <td> #5466 </td>
                                                     <td>  <span class="name">Mary Silva</span> </td>
-                                                    <td> <span class="product">Magic Mouse</span> </td>
+                                                    <td> <span class="product">Em Breve</span> </td>
                                                     <td><span class="count">250</span></td>
                                                     <td>
                                                         <span class="badge badge-pending">Pending</span>
