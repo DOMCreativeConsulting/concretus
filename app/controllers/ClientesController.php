@@ -32,4 +32,12 @@ class ClientesController extends Controller
         return  $this->responderJSON($clientes);
     }
 
+    public function update()
+    {
+        $cliente = $_POST;
+        $clienteId = Cliente::atualizar($cliente);
+
+        return $this->responderJSON($cliente);
+    }
+
 }

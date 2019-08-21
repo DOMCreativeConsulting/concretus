@@ -54,5 +54,37 @@ class QueryBuilder
             die($exception->getMessage());
         }
     }
+
+    public function update($tabela, $dados, $where)
+    {
+        $dados = (array)$dados;
+        $campos = '';
+        foreach ($dados as $key => $valor) {
+            $campos .= "\n $key=:$key,";
+        }
+        $campos = rtrim($campos, ",");
+        $sql = sprintf(
+            "UPDATE %s \n SET %s \n WHERE %s",
+            $tabela,
+            $campos,
+            implode(" = ", $where)
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+            $e = $statement->execute($dados);
+
+            if (!$e) {
+                throw new \Exception("Erro ao atualizar $e");
+            }
+            return $where[1];
+        } catch (PDOException $e) {
+            http_response_code(500);
+            die($e->getMessage());
+        } catch (\Exception $e) {
+            http_response_code(500);
+            die($e->getMessage());
+        }
+    }
     
 }

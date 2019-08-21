@@ -33,4 +33,9 @@ class Cliente
         return $result;
     }
 
+    public static function atualizar($dados)
+    {
+        App::get('database')->update(static::$table, $dados, $where = ["id", $dados['id']]);
+    }
+
 }
