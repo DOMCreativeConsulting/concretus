@@ -12,9 +12,12 @@ $("#cliente").submit(function(){
     })
 
     .done(() => {
-        $("#sucesso").show();
+        $("#sucesso").fadeToggle(300);
+        window.setTimeout(() => {
+            $("#sucesso").fadeToggle(300);
+        }, 1500);
       })
-      .fail(() => $("#erro").show());
+      .fail(() => $("#erro").show(200));
   
 });
 

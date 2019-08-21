@@ -38,4 +38,9 @@ class Cliente
         App::get('database')->update(static::$table, $dados, $where = ["id", $dados['id']]);
     }
 
+    public static function deletar($cliente)
+    {
+        App::get('database')->delete(static::$table, $where = ["id", $cliente]);
+    }
+
 }

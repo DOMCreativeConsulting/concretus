@@ -60,8 +60,8 @@
                                         </div>
 
                                         <div class="row pt30" id="sucesso">
-                                            <div class="col-md-12">
-                                                <p style="color:green;text-align:center;">Cliente cadastrado com sucesso!</p>
+                                            <div style="text-align:center;" role="alert" class="col-md-4 offset-md-4 alert alert-success">
+                                                <p>Cliente cadastrado com sucesso!</p>
                                             </div>
                                         </div>
 

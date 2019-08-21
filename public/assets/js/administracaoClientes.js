@@ -10,13 +10,43 @@ function editarCliente(cliente){
     $("#editar-email").val($(`#email-${cliente.id}`).html());
 }
 
-$(".close").click(function() {
+$(".close").click(() => {
 
     $("#ver-mais").hide();
 
 });
 
-$("#editar-cliente").submit(function(){
+function deletar(cliente){
+
+    var dados = $("#editar-cliente").serialize();
+
+    var r = confirm("Você realmente deseja excluir os registros deste cliente?");
+
+    if(r == true){
+
+        $.post("deletar-cliente", dados, response => {
+
+            cliente = JSON.parse(response);
+    
+        }).done(() => {
+    
+            $(`#cliente-${cliente}`).hide(300);
+    
+        }).fail(() => {
+    
+            alert("Ocorreu um erro. Tente novamente mais tarde!")
+    
+        }).always(() => {
+
+            $("#ver-mais").hide();
+            
+        });
+
+    }
+
+}
+
+$("#editar-cliente").submit(() => {
 
     event.preventDefault();
 
@@ -39,11 +69,15 @@ $("#editar-cliente").submit(function(){
 
         alert("Ocorreu um erro! Tente novamente mais tarde.")
 
+    }).always(() => {
+
+        $("#ver-mais").hide();
+
     });
 
 });
 
-$(document).ready( function () {
+$(document).ready(() => {
 
     $('#tabelaClientes').DataTable({
         "language":{

@@ -35,7 +35,15 @@ class ClientesController extends Controller
     public function update()
     {
         $cliente = $_POST;
-        $clienteId = Cliente::atualizar($cliente);
+        Cliente::atualizar($cliente);
+
+        return $this->responderJSON($cliente);
+    }
+
+    public function destroy()
+    {
+        $cliente = $_POST['id'];
+        Cliente::deletar($cliente);
 
         return $this->responderJSON($cliente);
     }

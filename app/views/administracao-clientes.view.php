@@ -40,7 +40,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <tr style="font-size:13px;">
+                                                        <tr style="font-size:13px;" id="cliente-<?=$cliente->id; ?>">
                                                             <td id="id-<?=$cliente->id; ?>"><?=$cliente->id; ?></td>
                                                             <td id="nome-<?=$cliente->id; ?>"><?=$cliente->nome; ?></td>
                                                             <td id="cnpj-<?=$cliente->id; ?>"><?=$cliente->cnpj; ?></td>

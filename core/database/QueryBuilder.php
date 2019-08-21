@@ -86,5 +86,18 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
+    public function delete($tabela, $campos)
+    {
+        $where = implode(' = ', $campos);
+        $sql = "DELETE FROM {$tabela} WHERE {$where}";
+        try {
+            $statement = $this->pdo->prepare($sql)->execute();
+            return $statement;
+        } catch (PDOException $e) {
+            echo 'Erro ao deletar. Código: ' . $e->getMessage();
+
+        }
+    }
     
 }
