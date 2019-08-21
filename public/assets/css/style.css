@@ -140,3 +140,8 @@
     overflow: hidden !important;
     width:100% !important;
 }
+
+.nome{
+    text-transform: uppercase;
+    padding:10px;
+}

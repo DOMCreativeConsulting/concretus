@@ -3,13 +3,14 @@
     <div class="top-left">
         <div class="navbar-header">
             <a class="navbar-brand" href="./"><img src="public/assets/img/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="theme/images/logo2.png" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="./"><img src="public/images/logo.png" alt="Logo"></a>
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
         </div>
     </div>
     <div class="top-right">
         <div class="header-menu">
             <div class="header-left">
+                <!--
                 <button class="search-trigger"><i class="fa fa-search"></i></button>
                 <div class="form-inline">
                     <form class="search-form">
@@ -82,20 +83,26 @@
                     </div>
                 </div>
             </div>
+            -->
 
             <div class="user-area dropdown float-right">
-                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="user-avatar rounded-circle" src="theme/images/admin.jpg" alt="User Avatar">
-                </a>
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="nome"><?=$_SESSION['nome']; ?></span>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="public/assets/img/user.png" alt="User Avatar">
+                        </a>
 
-                <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Perfil</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Configurações</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="logout"><i class="fa fa-power -off"></i>Sair</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
