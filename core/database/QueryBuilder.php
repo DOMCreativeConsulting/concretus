@@ -42,15 +42,25 @@ class QueryBuilder
         }
     }
 
-    public function selectWhere($tabela, $campos = null)
+    public function selectWhere($table, $dados)
     {
-        $query = "select * from {$tabela}";
-        $query .= ($campos) ? " where " . implode(' = ', $campos) : "";
-        try {
-            $statement = $this->pdo->prepare($query);
-            $statement->execute();
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $exception) {
+        $query = "select * from `{$table}` where 1 ";
+        foreach($dados as $dado => $valor)
+        {
+            if(!empty($valor))
+            {
+            $query .= "AND `{$dado}` = '{$valor}' ";
+            }
+        }
+            
+        try 
+        {
+            $resultado = $this->pdo->prepare(utf8_decode($query));
+            $resultado->execute();
+            return $resultado->fetchAll(PDO::FETCH_CLASS);
+        } 
+        catch (PDOException $exception)
+        {
             die($exception->getMessage());
         }
     }

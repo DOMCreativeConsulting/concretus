@@ -31,6 +31,14 @@ class Router
 
     public function direct($uri, $requestType)
     {
+        if($uri != "concretus/login"){
+            
+            if(!isset($_SESSION) || !isset($_SESSION['logado']) || $_SESSION['logado'] != 1){
+                return view('login');
+            }
+
+        }
+        
         if (array_key_exists($uri, $this->routes[$requestType])) {
             return $this->callAction(
                 ...explode('@', $this->routes[$requestType][$uri])

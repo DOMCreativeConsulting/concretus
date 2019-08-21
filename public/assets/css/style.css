@@ -126,3 +126,17 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+.login-background{
+    background-image:url("../img/login-background.jpg");
+    height: 100vh;
+}
+
+.login-form-background{
+    background-color:#f1f2f7;
+}
+
+.login-screen{
+    overflow: hidden !important;
+    width:100% !important;
+}
