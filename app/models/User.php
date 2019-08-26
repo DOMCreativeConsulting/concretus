@@ -29,6 +29,7 @@ class User extends Model
             $_SESSION['nome'] = $result[0]->nome;
             $_SESSION['usuario'] = $result[0]->usuario;
             $_SESSION['email'] = $result[0]->email;
+            $_SESSION['hierarquia'] = $result[0]->hierarquia;
 
         }
 
@@ -40,6 +41,27 @@ class User extends Model
         $_SESSION['logado'] = 0;
         
         session_destroy();
+    }
+
+    public static function cadastrar($values)
+    {
+        App::get('database')->insert(static::$table, $values);
+    }
+
+    public static function buscar()
+    {
+        $result = App::get('database')->selectAll(static::$table);
+        return $result;
+    }
+
+    public static function atualizar($dados)
+    {
+        App::get('database')->update(static::$table, $dados, $where = ["id", $dados['id']]);
+    }
+
+    public static function deletar($usuario)
+    {
+        App::get('database')->delete(static::$table, $where = ["id", $usuario]);
     }
 
 }

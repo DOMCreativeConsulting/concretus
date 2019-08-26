@@ -15,3 +15,8 @@ $router->post("$folder/deletar-cliente", 'ClientesController@destroy');
 $router->get("$folder/tela-login", 'UsersController@index');
 $router->post("$folder/login", 'UsersController@login');
 $router->get("$folder/logout", 'UsersController@logout');
+$router->get("$folder/cadastro-usuarios", 'UsersController@cadastro');
+$router->post("$folder/cadastrar-usuario", 'UsersController@cadastrar');
+$router->get("$folder/administrar-usuarios", 'UsersController@administrar');
+$router->post("$folder/atualiza-usuario", 'UsersController@update');
+$router->post("$folder/deletar-usuario", 'UsersController@destroy');
