@@ -18,7 +18,7 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text"><span class="count">0</span></div>
-                                            <div class="stat-heading">Em Breve</div>
+                                            <div class="stat-heading">Arquivos</div>
                                         </div>
                                     </div>
                                 </div>

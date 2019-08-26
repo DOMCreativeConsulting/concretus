@@ -22,7 +22,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <table id="tabelaClientes">
+                                        <table id="tabelaClientes" class="display nowrap">
                                             <thead>
                                                 <tr>
                                                     <th>#Id</th>

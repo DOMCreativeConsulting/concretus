@@ -20,3 +20,5 @@ $router->post("$folder/cadastrar-usuario", 'UsersController@cadastrar');
 $router->get("$folder/administrar-usuarios", 'UsersController@administrar');
 $router->post("$folder/atualiza-usuario", 'UsersController@update');
 $router->post("$folder/deletar-usuario", 'UsersController@destroy');
+
+$router->get("$folder/listar-arquivos", 'ArquivosController@index');
