@@ -21,6 +21,7 @@ class ComposerStaticInit8117f282e54685a11eb326c043fbb262
         'App\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
         'App\\Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
+        'App\\models\\Arquivos' => __DIR__ . '/../..' . '/app/models/Arquivos.php',
         'App\\models\\Cliente' => __DIR__ . '/../..' . '/app/models/Cliente.php',
         'App\\models\\Model' => __DIR__ . '/../..' . '/app/models/Model.php',
         'App\\models\\User' => __DIR__ . '/../..' . '/app/models/User.php',

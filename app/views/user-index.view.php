@@ -1,5 +1,4 @@
 <?php include 'app/views/partials/head.php'; ?>
-<?php include 'app/views/partials/sidebar.php'; ?>
 <div id="right-panel" class="right-panel">
     <div class="clearfix">
         <?php include 'app/views/partials/header.php'; ?>

@@ -14,7 +14,7 @@ function editarUsuario(usuario){
     $("#editar-id").val($(`#id-${usuario.id}`).html());
     $("#editar-nome").val($(`#nome-${usuario.id}`).html());
     $("#editar-user").val($(`#user-${usuario.id}`).html());
-    $("#editar-senha").val($(`#senha-${usuario.id}`).html());
+    $("#editar-senha").val($(`#senha-${usuario.id}`).val());
     $("#editar-cliente").val($(`#cliente-${usuario.id}`).html());
     $("#editar-hierarquia").val($(`#hierarquia-${usuario.id}`).html());
     $("#editar-email").val($(`#email-${usuario.id}`).html());
@@ -71,7 +71,7 @@ $("#editar-usuario").submit(() => {
 
         $(`#nome-${usuario.id}`).html(usuario.nome);
         $(`#user-${usuario.id}`).html(usuario.usuario);
-        $(`#senha-${usuario.id}`).html(usuario.senha);
+        $(`#senha-real-${usuario.id}`).html(usuario.senha);
         $(`#cliente-${usuario.id}`).html(usuario.cliente);
         $(`#hierarquia-${usuario.id}`).html(usuario.hierarquia);
         $(`#email-${usuario.id}`).html(usuario.email);

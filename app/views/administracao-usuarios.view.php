@@ -44,7 +44,11 @@
                                                             <td id="id-<?=$usuario->id; ?>"><?=$usuario->id; ?></td>
                                                             <td id="nome-<?=$usuario->id; ?>"><?=$usuario->nome; ?></td>
                                                             <td id="user-<?=$usuario->id; ?>"><?=$usuario->usuario; ?></td>
-                                                            <td id="senha-<?=$usuario->id; ?>"><span class="asteriscos">********</span><span class="senha-real"><?=$usuario->senha; ?></span></td>
+                                                            <td>
+                                                                <input id="senha-<?=$usuario->id;?>" type="hidden" value="<?=$usuario->senha;?>">
+                                                                <span class="asteriscos">********</span>
+                                                                <span id="senha-real-<?=$usuario->id;?>" class="senha-real"><?=$usuario->senha; ?></span>
+                                                            </td>
                                                             <td id="cliente-<?=$usuario->id; ?>"><?=$usuario->cliente; ?></td>
                                                             <td id="hierarquia-<?=$usuario->id; ?>"><?=$usuario->hierarquia; ?></td>
                                                             <td id="email-<?=$usuario->id; ?>"><?=$usuario->email; ?></td>
