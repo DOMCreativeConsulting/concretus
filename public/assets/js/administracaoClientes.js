@@ -80,9 +80,7 @@ $("#editar-cliente").submit(() => {
 $(document).ready(() => {
 
     $('#tabelaClientes').DataTable({
-        rowReorder: {
-            selector: 'td:nth-child(2)'
-        },
+        reponsive:true,
         "language":{
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -105,8 +103,7 @@ $(document).ready(() => {
                 "sSortAscending": ": Ordenar colunas de forma ascendente",
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
-        },
-        responsive: true
+        }
     });
 
-} );
+});

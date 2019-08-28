@@ -19,9 +19,9 @@
             </div>
             <div class="col-md-12">
                 <div style="text-align:center" class="row pt30">
-                    <div class="col-md-4"><button type="subtmit" class="btn btn-primary">Salvar</button></div>
-                    <div class="col-md-4"><button type="button" id="botao-deletar" onclick="deletar(this);" class="btn btn-danger">Deletar</button></div>
-                    <div class="col-md-4 close"><button type="button" class="btn btn-secondary">Cancelar</button></div>
+                    <div class="col-md-4 pt10"><button type="subtmit" class="btn btn-primary">Salvar</button></div>
+                    <div class="col-md-4 pt10"><button type="button" id="botao-deletar" onclick="deletar(this);" class="btn btn-danger">Deletar</button></div>
+                    <div class="col-md-4 pt10 close"><button type="button" class="btn btn-secondary">Cancelar</button></div>
                 </div>
             </form>
         </div>

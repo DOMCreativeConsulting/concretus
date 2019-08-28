@@ -22,15 +22,17 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <table id="tabelaArquivos" class="display nowrap">
+                                        <table id="tabelaArquivos" class="display compact">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Nome</th>
+                                                    <th>Status</th>
                                                     <th>Exibir</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            
                                             <?php 
                                             $nArquivos = 0;
                                             foreach($arquivos as $arquivo): 
@@ -42,7 +44,14 @@
                                                         <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
                                                             <td><?=$nArquivos; ?></td>
                                                             <td id="nome-<?=$arquivo; ?>"><?=$arquivo; ?></td>
-                                                            <td><a href="public/files/<?=$arquivo;?>"><button class="btn btn-primary" type="button"><i class="fa fa-file"></i></button></a></td>
+                                                            <td><b>Não</b> Lida</td>
+                                                            <td>
+                                                                <a href="public/files/<?=$arquivo;?>">
+                                                                    <button class="btn btn-primary" type="button">
+                                                                        <i class="fa fa-file"></i>
+                                                                    </button>
+                                                                </a>
+                                                            </td>
                                                         </tr>
                                                     </div>
                                                 </div>
