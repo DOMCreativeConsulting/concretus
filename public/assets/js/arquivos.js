@@ -27,3 +27,19 @@ $(document).ready(() => {
     });
 
 });
+
+function marcarLido(arquivo){
+
+    var arquivos = {id: arquivo.id};
+
+    $.post('marcar-lido', arquivos, response => {
+
+        dados = JSON.parse(response);
+
+        id = dados.id;
+
+        $(`#leitura-${id}`).html('Lido');
+
+    });
+
+}

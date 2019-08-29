@@ -5,6 +5,8 @@ $folder = 'concretus';
 $router->post("$folder/login", 'UsersController@login');
 $router->get("$folder/logout", 'UsersController@logout');
 
+$router->post("$folder/marcar-lido", 'ArquivosController@marcarLido');
+
 if($_SESSION['hierarquia'] == 'user'){
 
     $router->get("$folder", 'HomeController@userIndex');
@@ -31,5 +33,6 @@ if($_SESSION['hierarquia'] == 'user'){
     
     $router->get("$folder/arquivos", 'ArquivosController@index');
     $router->get("$folder/listar-arquivos", 'ArquivosController@lista');
+    $router->get("$folder/arquivados", 'ArquivosController@arquivados');
 
 }

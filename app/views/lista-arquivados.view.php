@@ -15,7 +15,7 @@
                                 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h2 class="title"><i class="fa fa-file"></i> Lista de Arquivos <br /><small style="font-size:15px;">Caixa de Entrada</small></h2>
+                                        <h2 class="title"><i class="fa fa-file"></i> Lista de Arquivos <br /><small style="font-size:15px;">Arquivados</small></h2>
                                     </div>
                                 </div>
 
@@ -35,7 +35,7 @@
                                             <tbody>
                                             
                                                 <?php foreach($arquivos as $arquivo): ?>
-                                                    <?php if($arquivo->status == 'entrada'): ?>
+                                                    <?php if($arquivo->status == 'arquivado'): ?>
 
                                                         <div class="row">
                                                             <div class="col-md-12">
@@ -52,10 +52,11 @@
                                                                     </td>
                                                                     <td>
                                                                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                                        ...
                                                                             <li class="dropdown-submenu">
                                                                                 <a tabindex="-1" href="#">More options</a>
                                                                                 <ul class="dropdown-menu">
-                                                                                <li>testing</li>
+                                                                                ...
                                                                                 </ul>
                                                                             </li>
                                                                         </ul>
@@ -66,7 +67,7 @@
 
                                                     <?php endif; ?>
                                                 <?php endforeach; ?>
-                                                
+
                                             </tbody>
                                         </table>
 

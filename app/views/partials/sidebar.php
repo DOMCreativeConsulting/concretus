@@ -23,7 +23,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file"></i>Arquivos</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list"></i><a href="arquivos">Listar</a></li>
+                            <li><i class="fa fa-list"></i><a href="arquivos">Caixa de Entrada</a></li>
+                            <li><i class="fa fa-archive"></i><a href="arquivados">Arquivados</a></li>
                         </ul>
                     </li>
                 </ul>
