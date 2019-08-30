@@ -30,7 +30,7 @@
                                                         <th>Nome</th>
                                                         <th>Usuário</th>
                                                         <th>Senha</th>
-                                                        <th>Cliente</th>
+                                                        <th>Cliente Id</th>
                                                         <th>Hierarquia</th>
                                                         <th>Email</th>
                                                         <th></th>
@@ -50,7 +50,7 @@
                                                                     <span class="asteriscos">********</span>
                                                                     <span id="senha-real-<?=$usuario->id;?>" class="senha-real"><?=$usuario->senha; ?></span>
                                                                 </td>
-                                                                <td id="cliente-<?=$usuario->id; ?>"><?=$usuario->cliente; ?></td>
+                                                                <td id="cliente-<?=$usuario->id; ?>"><?=$usuario->clienteId; ?></td>
                                                                 <td id="hierarquia-<?=$usuario->id; ?>"><?=$usuario->hierarquia; ?></td>
                                                                 <td id="email-<?=$usuario->id; ?>"><?=$usuario->email; ?></td>
                                                                 <td><a id="<?=$usuario->id; ?>" onclick="editarUsuario(this);" href="javascript:void(0)"><i style="color:green;font-size:24px;" class="fa fa-edit"></i></a></td>

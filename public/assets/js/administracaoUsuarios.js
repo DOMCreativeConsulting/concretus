@@ -72,7 +72,7 @@ $("#editar-usuario").submit(() => {
         $(`#nome-${usuario.id}`).html(usuario.nome);
         $(`#user-${usuario.id}`).html(usuario.usuario);
         $(`#senha-real-${usuario.id}`).html(usuario.senha);
-        $(`#cliente-${usuario.id}`).html(usuario.cliente);
+        $(`#cliente-${usuario.id}`).html(usuario.clienteId);
         $(`#hierarquia-${usuario.id}`).html(usuario.hierarquia);
         $(`#email-${usuario.id}`).html(usuario.email);
 

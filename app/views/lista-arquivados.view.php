@@ -29,7 +29,7 @@
                                                     <th>Nome</th>
                                                     <th>Vizualização</th>
                                                     <th>Exibir</th>
-                                                    <th>opt</th>
+                                                    <th>Mover p/ C. Entrada</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -51,15 +51,9 @@
                                                                         </a>
                                                                     </td>
                                                                     <td>
-                                                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                                                        ...
-                                                                            <li class="dropdown-submenu">
-                                                                                <a tabindex="-1" href="#">More options</a>
-                                                                                <ul class="dropdown-menu">
-                                                                                ...
-                                                                                </ul>
-                                                                            </li>
-                                                                        </ul>
+                                                                        <a id="<?=$arquivo->id;?>" onclick="desarquivar(this);" href="#">
+                                                                        <i class="fa fa-arrow-up desarquivar"></i></i>
+                                                                        </a>
                                                                     </td>
                                                                 </tr>
                                                             </div>

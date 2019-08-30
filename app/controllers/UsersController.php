@@ -48,7 +48,8 @@ class UsersController extends Controller
     public function administrar()
     {
         $usuarios = User::buscar();
-        return view('administracao-usuarios', compact('usuarios'));
+        $clientes = Cliente::buscar();
+        return view('administracao-usuarios', compact('usuarios','clientes'));
     }
 
     public function update()
@@ -63,6 +64,28 @@ class UsersController extends Controller
     {
         $usuario = $_POST['id'];
         User::deletar($usuario);
+
+        return $this->responderJSON($usuario);
+    }
+
+    public function perfil()
+    {
+        return view("perfil");
+    }
+
+    public function recuperarSenha()
+    {
+        return view('recuperar-senha');
+    }
+
+    public function atualizarSenha()
+    {
+        $usuario = $_POST;
+        
+        $dados['senha'] = $_POST['senha'];
+        $dados['id'] = $_POST['userId'];
+
+        User::atualizar($dados);
 
         return $this->responderJSON($usuario);
     }

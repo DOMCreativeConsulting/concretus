@@ -17,7 +17,10 @@
                     <label for="senha">Senha</label>
                     <input type="password" class="form-control" name="senha">
                 </div>
-                <div class="col-md-12 pt30" style="text-align:center">
+                <div class="col-md-10 offset-md-1 pt20">
+                    <a style="color:#3366BB;" href="recuperar-senha">Esqueci minha senha.</a>
+                </div>
+                <div class="col-md-12 pt20" style="text-align:center">
                     <button type="submit" style="width:83%;" id="botao-acessar" class="btn btn-success">Acessar</button>
                 </div>
             </form>

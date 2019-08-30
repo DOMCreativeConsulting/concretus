@@ -21,9 +21,7 @@
                 </a>
 
                 <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Perfil</a>
-
-                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Configurações</a>
+                    <a class="nav-link" href="perfil"><i class="fa fa- user"></i>Perfil</a>
 
                     <a class="nav-link" href="logout"><i class="fa fa-power -off"></i>Sair</a>
                 </div>

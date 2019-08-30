@@ -9,27 +9,6 @@ class ArquivosController extends Controller
 {
     public function index()
     {
-        $arquivos_atuais = Arquivos::lista();
-
-        $arquivos_salvos = Arquivos::buscar();
-
-        $arquivos = [];
-
-        foreach($arquivos_salvos as $arquivo){
-            array_push($arquivos, $arquivo->nome);
-        }
-
-        $nao_cadastrados = array_diff($arquivos_atuais, $arquivos);
-
-        foreach ($nao_cadastrados as $nao_cadastrado){
-            $file['nome'] = $nao_cadastrado;
-            $file['sirius'] = '123';
-            $file['status'] = 'entrada';
-            $file['lido'] = 0;
-
-            Arquivos::cadastrar($file);
-        }
-
         $arquivos = Arquivos::buscar();
 
         return view("lista-arquivos", compact('arquivos'));
@@ -56,5 +35,30 @@ class ArquivosController extends Controller
         $arquivos = Arquivos::buscar();
 
         return view("lista-arquivados", compact("arquivos"));
+    }
+
+    public function userArquivados()
+    {
+        $arquivos = Arquivos::buscar();
+
+        return view("user-arquivados", compact("arquivos"));
+    }
+
+    public function arquivar()
+    {
+        $arquivo = $_POST;
+        
+        Arquivos::arquivar($arquivo);
+
+        return $this->responderJSON($arquivo);
+    }
+
+    public function desarquivar()
+    {
+        $arquivo = $_POST;
+        
+        Arquivos::desarquivar($arquivo);
+
+        return $this->responderJSON($arquivo);
     }
 }

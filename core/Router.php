@@ -31,7 +31,7 @@ class Router
 
     public function direct($uri, $requestType)
     {
-        if($uri != "concretus/login"){
+        if($uri != "concretus/login" && $uri != "concretus/recuperar-senha" && $uri != "concretus/enviar-email" && $uri != "concretus/atualizar-senha"){
             
             if(!isset($_SESSION) || !isset($_SESSION['logado']) || $_SESSION['logado'] != 1){
                 return view('login');

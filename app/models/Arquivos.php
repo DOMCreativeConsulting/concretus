@@ -35,9 +35,37 @@ class Arquivos extends Model
         return $arquivos;
     }
 
+    public static function listaPasta()
+    {
+        try{
+            $pasta = opendir("public/files/".$_SESSION['sirius']);
+        }catch(Exception $e){
+            dd("Diretório não encontrado!");
+        }
+
+        $arquivos = [];
+
+        while(($arquivo = readdir($pasta)) !== FALSE){
+            if($arquivo != '.' && $arquivo != '..'){
+                array_push($arquivos, $arquivo);
+            }
+        }
+
+        return $arquivos;
+    }
+
     public static function buscar()
     {
         $arquivos_banco = App::get('database')->selectAll(static::$table);
+
+        return $arquivos_banco;
+    }
+
+    public static function buscarSirius()
+    {
+        $dados['sirius'] = $_SESSION['sirius'];
+
+        $arquivos_banco = App::get('database')->selectWhere(static::$table, $dados);
 
         return $arquivos_banco;
     }
@@ -51,6 +79,20 @@ class Arquivos extends Model
     {
         $dados['lido'] = 1;
         
+        App::get('database')->update(static::$table, $dados, $where = ['id', $arquivo['id']]);
+    }
+
+    public static function arquivar($arquivo)
+    {
+        $dados['status'] = 'arquivado';
+
+        App::get('database')->update(static::$table, $dados, $where = ['id', $arquivo['id']]);
+    }
+
+    public static function desarquivar($arquivo)
+    {
+        $dados['status'] = 'entrada';
+
         App::get('database')->update(static::$table, $dados, $where = ['id', $arquivo['id']]);
     }
 

@@ -15,6 +15,8 @@ class User extends Model
     public $senha;
     public $email;
     public $token;
+    public $hierarquia;
+    public $clienteId;
     
     public static function login()
     {
@@ -30,6 +32,12 @@ class User extends Model
             $_SESSION['usuario'] = $result[0]->usuario;
             $_SESSION['email'] = $result[0]->email;
             $_SESSION['hierarquia'] = $result[0]->hierarquia;
+
+            $cliente['id'] = $result[0]->clienteId;
+
+            $retorno = App::get('database')->selectWhere('clientes', $cliente);
+
+            $_SESSION['sirius'] = $retorno[0]->sirius;
 
         }
 
@@ -62,6 +70,13 @@ class User extends Model
     public static function deletar($usuario)
     {
         App::get('database')->delete(static::$table, $where = ["id", $usuario]);
+    }
+
+    public static function encontrar($usuario)
+    {
+        $result = App::get('database')->selectWhere(static::$table, $usuario);
+
+        return $result;
     }
 
 }

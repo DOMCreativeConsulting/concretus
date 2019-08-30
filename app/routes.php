@@ -5,12 +5,23 @@ $folder = 'concretus';
 $router->post("$folder/login", 'UsersController@login');
 $router->get("$folder/logout", 'UsersController@logout');
 
-$router->post("$folder/marcar-lido", 'ArquivosController@marcarLido');
+$router->get("$folder/recuperar-senha", 'UsersController@recuperarSenha');
 
-if($_SESSION['hierarquia'] == 'user'){
+$router->post("$folder/marcar-lido", 'ArquivosController@marcarLido');
+$router->post("$folder/arquivar", 'ArquivosController@arquivar');
+$router->post("$folder/desarquivar", 'ArquivosController@desarquivar');
+
+$router->post("$folder/enviar-email", 'EmailController@enviar');
+$router->post("$folder/atualizar-senha", 'UsersController@atualizarSenha');
+
+$router->get("$folder/perfil", 'UsersController@perfil');
+
+if(isset($_SESSION['hierarquia']) && $_SESSION['hierarquia'] == 'user'){
 
     $router->get("$folder", 'HomeController@userIndex');
     $router->get("$folder/home", 'HomeController@userIndex');
+
+    $router->get("$folder/user-arquivados", 'ArquivosController@userArquivados');
 
 }else{
 

@@ -43,3 +43,31 @@ function marcarLido(arquivo){
     });
 
 }
+
+function arquivar(arquivo){
+
+    var arquivos = {id: arquivo.id};
+
+    $.post('arquivar', arquivos, response => {
+
+        dados = JSON.parse(response);
+
+        $(`#arquivo-${dados.id}`).hide(300);
+
+    });
+
+}
+
+function desarquivar(arquivo){
+
+    var arquivos = {id: arquivo.id};
+
+    $.post('desarquivar', arquivos, response => {
+
+        dados = JSON.parse(response);
+
+        $(`#arquivo-${dados.id}`).hide(300);
+
+    });
+
+}

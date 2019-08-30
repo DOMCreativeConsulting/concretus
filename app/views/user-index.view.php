@@ -1,5 +1,15 @@
 <?php include 'app/views/partials/head.php'; ?>
-<div id="right-panel" class="right-panel">
+<style>
+.small-device .right-panel {
+    margin-left: 0px !important;
+}
+.right-panel {
+    background: #f1f2f7;
+    margin-left: 0px !important;
+    margin-top: 55px;
+}
+</style>
+<div id="user-index" class="right-panel">
     <div class="clearfix">
         <?php include 'app/views/partials/header.php'; ?>
         <!-- Content -->
@@ -14,39 +24,53 @@
                                 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h2 class="title"><i class="fa fa-file"></i> Lista de Arquivos</h2>
+                                        <h2 class="title"><i class="fa fa-file"></i> Lista de Arquivos <br /><small style="font-size:15px;">Caixa de Entrada / <a href="user-arquivados">Arquivados</a></small></h2>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <table id="tabelaArquivos" class="display nowrap">
+                                        <table id="tabelaArquivos" class="display compact">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
+                                                    <th>#Id</th>
                                                     <th>Nome</th>
+                                                    <th>Vizualização</th>
                                                     <th>Exibir</th>
+                                                    <th>Arquivar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php 
-                                            $nArquivos = 0;
-                                            foreach($arquivos as $arquivo): 
-                                            $nArquivos++;
-                                            ?>
+                                            
+                                                <?php foreach($arquivos as $arquivo): ?>
+                                                    <?php if($arquivo->status == 'entrada' && $arquivo->sirius == $_SESSION['sirius']): ?>
 
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
-                                                            <td><?=$nArquivos; ?></td>
-                                                            <td id="nome-<?=$arquivo; ?>"><?=$arquivo; ?></td>
-                                                            <td><a href="public/files/<?=$arquivo;?>"><button class="btn btn-primary" type="button"><i class="fa fa-file"></i></button></a></td>
-                                                        </tr>
-                                                    </div>
-                                                </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
+                                                                    <td><?=$arquivo->id;?></td>
+                                                                    <td><?=$arquivo->nome; ?></td>
+                                                                    <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></td>
+                                                                    <td>
+                                                                        <a target="_blank" id="<?=$arquivo->id;?>" onclick="marcarLido(this);" href="public/files/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
+                                                                            <button class="btn btn-primary" type="button">
+                                                                                <i class="fa fa-file"></i>
+                                                                            </button>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a id="<?=$arquivo->id;?>" onclick="arquivar(this);" href="#">
+                                                                            <i class="fa fa-archive arquivar"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </div>
+                                                        </div>
 
-                                            <?php endforeach; ?>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                                
                                             </tbody>
                                         </table>
 

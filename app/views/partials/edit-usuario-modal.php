@@ -12,7 +12,14 @@
                     <div class="col-md-4"><input id="editar-nome" type="text" class="form-control" name="nome" placeholder="Nome"></div>
                     <div class="col-md-4"><input id="editar-user" type="text" class="form-control" name="usuario" placeholder="Usuário" autocomplete="off"></div>
                     <div class="col-md-4"><input id="editar-senha" type="password" class="form-control" name="senha" placeholder="Senha"></div>
-                    <div class="col-md-4"><input id="editar-cliente" type="text" class="form-control" name="cliente" placeholder="Cliente"></div>
+                    <div class="col-md-4">
+                        <input id="editar-cliente" class="form-control" name="clienteId" list="clientes" />
+                        <datalist id="clientes">
+                            <?php foreach($clientes as $cliente): ?>
+                            <option value="<?=$cliente->id;?>"><?=$cliente->nome;?></option>
+                            <?php endforeach; ?>
+                        </datalist>
+                    </div>
                     <div class="col-md-4"><select name="hierarquia" class="form-control" id="editar-hierarquia"><option value="admin">Administrador</option><option value="user">Usuário</option></select></div>
                     <div class="col-md-4"><input id="editar-email" type="text" class="form-control" name="email" placeholder="Email"></div>
                 </div>
