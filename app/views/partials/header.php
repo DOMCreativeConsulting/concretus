@@ -8,14 +8,14 @@
         </div>
     </div>
     <div class="top-right">
-        <div class="row">
-            <div class="col-md-11 center-header">
-                <div class="col-md-4 offset-md-8 user-text">
+        <div class="row dados-usuario">
+            <div class="col-xs-11 center-header">
+                <div class="col-xs-4 offset-xs-8 user-text">
                     <span class="nome"><?=$_SESSION['nome'];?></span><br>
                     <span class="funcao"><?=$_SESSION['hierarquia'] == 'admin' ? 'administrador' : 'usuário';?></span>
                 </div>
             </div>
-            <div class="col-md-1 user-area dropdown">
+            <div class="col-xs-1 user-area dropdown">
                 <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle" style="float:right;" width="50px" src="public/assets/img/user.png" alt="User Avatar">
                 </a>

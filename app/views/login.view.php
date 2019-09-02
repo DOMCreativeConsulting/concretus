@@ -1,5 +1,9 @@
 <?php include 'app/views/partials/head.php'; ?>
-
+<style>
+body{
+    background-color:#f1f2f7 !important;
+}
+</style>
 <div class="row login-screen">
     <div class="col-md-8 login-background">
     </div>
