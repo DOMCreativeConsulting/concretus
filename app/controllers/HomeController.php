@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\models\Cliente;
 use App\models\Arquivos;
+use App\models\User;
 
 class HomeController
 {
@@ -14,7 +15,9 @@ class HomeController
 
         $arquivos = Arquivos::buscar();
 
-        return view('index', compact('clientes','arquivos'));
+        $usuarios = User::buscar();
+
+        return view('index', compact('clientes', 'arquivos', 'usuarios'));
     }
 
     public function userIndex()

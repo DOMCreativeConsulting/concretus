@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\models\User;
 use App\models\Cliente;
+use App\models\Arquivos;
 
 class UsersController extends Controller
 {
@@ -88,6 +89,19 @@ class UsersController extends Controller
         User::atualizar($dados);
 
         return $this->responderJSON($usuario);
+    }
+
+    public function simular()
+    {
+        $usuario = User::encontrar($_POST);
+
+        $clienteId['id'] = $usuario[0]->clienteId;
+
+        $cliente = Cliente::encontrar($clienteId);
+
+        $arquivos = Arquivos::buscar();
+
+        return view('simulacao', compact('arquivos', 'cliente', 'usuario'));
     }
 
 }

@@ -41,6 +41,8 @@ if(isset($_SESSION['hierarquia']) && $_SESSION['hierarquia'] == 'user'){
     $router->get("$folder/administrar-usuarios", 'UsersController@administrar');
     $router->post("$folder/atualiza-usuario", 'UsersController@update');
     $router->post("$folder/deletar-usuario", 'UsersController@destroy');
+    $router->post("$folder/simular-usuario", 'UsersController@simular');
+    $router->get("$folder/simular-arquivados", 'UsersController@simularArquivados');
     
     $router->get("$folder/arquivos", 'ArquivosController@index');
     $router->get("$folder/listar-arquivos", 'ArquivosController@lista');

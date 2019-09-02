@@ -22,9 +22,10 @@ class Cliente extends Model
         App::get('database')->insert(static::$table, $values);
     }
 
-    public static function encontrar($table, $where = NULL)
+    public static function encontrar($where)
     {
-        App::get('database')->selectWhere(static::$table, $where);
+        $result = App::get('database')->selectWhere(static::$table, $where);
+        return $result;
     }
 
 
