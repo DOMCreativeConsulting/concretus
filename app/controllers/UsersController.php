@@ -104,4 +104,16 @@ class UsersController extends Controller
         return view('simulacao', compact('arquivos', 'cliente', 'usuario'));
     }
 
+    public function cadastrarEmail()
+    {
+        $dados['email'] = $_POST['email'];
+        $dados['id'] = $_SESSION['id'];
+
+        User::atualizar($dados);
+
+        $_SESSION['email'] = $dados['email'];
+
+        return $this->responderJSON($dados['email']);
+    }
+
 }

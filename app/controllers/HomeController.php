@@ -45,6 +45,10 @@ class HomeController
 
         $arquivos = Arquivos::buscar();
 
+        if($_SESSION['email'] == ''){
+            return view('cadastrar-email');
+        }
+
         return view("user-index", compact('arquivos'));
     }
 

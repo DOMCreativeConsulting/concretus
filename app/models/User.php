@@ -28,6 +28,7 @@ class User extends Model
         if(!empty($result)){ 
 
             $_SESSION['logado'] = 1;
+            $_SESSION['id'] = $result[0]->id;
             $_SESSION['nome'] = $result[0]->nome;
             $_SESSION['usuario'] = $result[0]->usuario;
             $_SESSION['email'] = $result[0]->email;

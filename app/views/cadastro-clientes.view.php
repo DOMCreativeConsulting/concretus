@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="email">Email: </label>
-                                                <input type="email" placeholder="exemplo@email.com" class="form-control" name="email" required>
+                                                <input type="email" placeholder="exemplo@email.com" class="form-control" name="email">
                                             </div>
                                         </div>
 

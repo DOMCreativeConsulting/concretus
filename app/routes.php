@@ -16,6 +16,8 @@ $router->post("$folder/atualizar-senha", 'UsersController@atualizarSenha');
 
 $router->get("$folder/perfil", 'UsersController@perfil');
 
+$router->post("$folder/cadastrar-email", 'UsersController@cadastrarEmail');
+
 if(isset($_SESSION['hierarquia']) && $_SESSION['hierarquia'] == 'user'){
 
     $router->get("$folder", 'HomeController@userIndex');
