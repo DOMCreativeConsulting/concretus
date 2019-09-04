@@ -90,14 +90,13 @@
                                         <div class="col-md-8 offset-md-2">
                                             <div class="row">
                                                 <div class="col-md-10">
-                                                    <input type="text" class="form-control" name="id" placeholder="Usuário" list="usuarios">
-                                                    <datalist id="usuarios">
+                                                    <select class="select2 form-control" id="usuarios" name="id">
                                                         <?php foreach ($usuarios as $usuario): ?>
                                                             <?php if ($usuario->hierarquia == 'user'): ?>
                                                                 <option value="<?=$usuario->id;?>"><?=$usuario->nome;?></option>
                                                             <?php endif; ?>
                                                         <?php endforeach; ?>
-                                                    </datalist>
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="submit" class="btn btn-primary">Simular</button>

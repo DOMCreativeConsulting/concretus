@@ -15,6 +15,11 @@ class ClientesController extends Controller
     public function cadastrar()
     {
         $cliente = $_POST;
+        $cnpj = $cliente['cnpj'];
+        $cnpj = str_replace('/','',$cnpj);
+        $cnpj = str_replace(' ','',$cnpj);
+        $cnpj = str_replace('-','',$cnpj);
+        $cliente['cnpj'] = $cnpj;
         $clienteId = Cliente::cadastrar($cliente);
 
         return $this->responderJSON($cliente);

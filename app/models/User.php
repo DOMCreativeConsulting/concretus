@@ -38,6 +38,7 @@ class User extends Model
             $retorno = App::get('database')->selectWhere('clientes', $cliente);
 
             $_SESSION['sirius'] = $retorno[0]->sirius;
+            $_SESSION['cnpj'] = $retorno[0]->cnpj;
 
         }
 

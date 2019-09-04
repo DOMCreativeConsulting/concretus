@@ -37,10 +37,12 @@ class Arquivos extends Model
 
     public static function listaPasta()
     {
-        try{
-            $pasta = opendir("public/files/".$_SESSION['sirius']);
-        }catch(Exception $e){
-            dd("Diretório não encontrado!");
+        if(file_exists("public/files/".$_SESSION['cnpj'])){
+
+            $pasta = opendir("public/files/".$_SESSION['cnpj']);
+
+        }else{
+            die('A pasta do cliente não foi encontrada! <br><a href="logout">Sair</a>');
         }
 
         $arquivos = [];
