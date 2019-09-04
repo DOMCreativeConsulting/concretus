@@ -36,7 +36,7 @@
                                                 <tr>
                                                     <th>#Id</th>
                                                     <th>Nome</th>
-                                                    <th>Vizualização</th>
+                                                    <th>Status</th>
                                                     <th>Exibir</th>
                                                     <th>Arquivar</th>
                                                 </tr>
@@ -49,19 +49,17 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
-                                                                    <td><?=$arquivo->id;?></td>
-                                                                    <td><?=$arquivo->nome; ?></td>
-                                                                    <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></td>
+                                                                    <td><b><?=$arquivo->id;?></b></td>
+                                                                    <td><b><?=$arquivo->nome; ?></b></td>
+                                                                    <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
                                                                     <td>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" onclick="marcarLido(this);" href="public/files/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
-                                                                            <button class="btn btn-primary" type="button">
-                                                                                <i class="fa fa-file"></i>
-                                                                            </button>
+                                                                            <img src="public/assets/img/abrir.png" width="30px">
                                                                         </a>
                                                                     </td>
                                                                     <td>
                                                                         <a id="<?=$arquivo->id;?>" onclick="arquivar(this);" href="#">
-                                                                            <i class="fa fa-archive arquivar"></i>
+                                                                            <img src="public/assets/img/arquivar.png" width="30px">
                                                                         </a>
                                                                     </td>
                                                                 </tr>

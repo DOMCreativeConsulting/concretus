@@ -4,7 +4,9 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="./"><img src="public/assets/img/logo.png" alt="Logo"></a>
             <a class="navbar-brand hidden" href="./"><img src="public/images/logo.png" alt="Logo"></a>
+            <?php if(isset($_SESSION) && $_SESSION['hierarquia'] == 'admin' ): ?>
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+            <?php endif; ?>
         </div>
     </div>
     <div class="top-right">

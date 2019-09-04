@@ -192,3 +192,15 @@ th, td{
 .dados-usuario{
     float:right !important;
 }
+
+.simulacao-usuario{
+    width:100%;
+    background-color:red;
+    padding-top:20px;
+    margin:0px !important;
+}
+
+.simulacao-usuario p{
+    color:white !important;
+    text-align:center;
+}

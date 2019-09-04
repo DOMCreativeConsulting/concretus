@@ -78,8 +78,41 @@
                 </div>
                 <!-- /Widgets -->
                 <div class="clearfix"></div>
+
+                <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="simular-usuario" action="simular-usuario" method="post">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="title"><i style="color:#336258;" class="fa fa-user"></i> Simular Usuário</h2>
+                                        </div>
+                                        <div class="col-md-8 offset-md-2">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" name="id" placeholder="Usuário" list="usuarios">
+                                                    <datalist id="usuarios">
+                                                        <?php foreach ($usuarios as $usuario): ?>
+                                                            <?php if ($usuario->hierarquia == 'user'): ?>
+                                                                <option value="<?=$usuario->id;?>"><?=$usuario->nome;?></option>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="submit" class="btn btn-primary">Simular</button>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Orders -->
-                <div class="orders">
+                <!--<div class="orders">
                     <div class="row">
                         <div class="col-xl-8">
                             <div class="card">
@@ -133,10 +166,10 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div> <!-- /.table-stats -->
+                                    </div> 
                                 </div>
-                            </div> <!-- /.card -->
-                        </div>  <!-- /.col-lg-8 -->
+                            </div> 
+                        </div>  
 
                         <div class="col-xl-4">
                             <div class="row">
@@ -147,12 +180,12 @@
                                                 <div id="flotPie1" class="float-chart"></div>
                                             </div>
                                         </div>
-                                    </div><!-- /.card -->
+                                    </div>
                                 </div>
                             </div>
-                        </div> <!-- /.col-md-4 -->
+                        </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- /.orders -->
                 <!-- Modal - Calendar - Add New Event -->
                 <div class="modal fade none-border" id="event-modal">
@@ -213,4 +246,5 @@
             <!-- .animated -->
         </div>
         <!-- /.content -->
+<script src="public/assets/js/index.js"></script>
 <?php include 'app/views/partials/footer.php'; ?>

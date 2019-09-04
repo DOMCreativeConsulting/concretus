@@ -27,7 +27,7 @@
                                                 <tr>
                                                     <th>#Id</th>
                                                     <th>Nome</th>
-                                                    <th>Vizualização</th>
+                                                    <th>Status</th>
                                                     <th>Exibir</th>
                                                     <th>Mover p/ C. Entrada</th>
                                                 </tr>
@@ -45,9 +45,7 @@
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></td>
                                                                     <td>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" onclick="marcarLido(this);" href="public/files/<?=$arquivo->nome;?>">
-                                                                            <button class="btn btn-primary" type="button">
-                                                                                <i class="fa fa-file"></i>
-                                                                            </button>
+                                                                            <img src="public/assets/img/abrir.png" width="30px">
                                                                         </a>
                                                                     </td>
                                                                     <td>
