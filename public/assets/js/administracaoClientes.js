@@ -1,4 +1,9 @@
-function editarCliente(cliente){
+$(".usuarios").hide();
+
+var usuarios = [];
+
+function editarCliente(cliente)
+{
 
     $("#ver-mais").show();
     $("#editar-id").val($(`#id-${cliente.id}`).html());
@@ -8,6 +13,10 @@ function editarCliente(cliente){
     $("#editar-responsavel").val($(`#responsavel-${cliente.id}`).html());
     $("#editar-site").val($(`#site-${cliente.id}`).html());
     $("#editar-email").val($(`#email-${cliente.id}`).html());
+
+    var clienteId = {clienteId:cliente.id};
+
+    popularTabela(clienteId);
 }
 
 $(".close").click(() => {
@@ -107,3 +116,38 @@ $(document).ready(() => {
     });
 
 });
+
+$("#botao-usuarios").click(() => {
+
+    $(".dados").hide();
+    $(".usuarios").fadeIn(200);
+    $("#botao-usuarios").attr('disabled', true);
+    $("#botao-dados").attr('disabled', false);
+
+});
+
+$("#botao-dados").click(() => {
+
+    $(".usuarios").hide();
+    $(".dados").fadeIn(200);
+    $("#botao-usuarios").attr('disabled', false);
+    $("#botao-dados").attr('disabled', true);
+
+});
+
+function popularTabela(clienteId)
+{
+    $.post('usuarios-cliente', clienteId, resposta => {
+
+        users = JSON.parse(resposta);
+        console.log(resposta);
+
+        $.each(users, (item) => {
+            console.log(item.email);
+            $('#usuario-nome').html(item.nome);
+            $('#usuario-usuario').html(item.usuario);
+            $('#usuario-senha').html(item.senha);
+        });
+
+    });
+}

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\models\Cliente;
+use App\models\User;
 
 class ClientesController extends Controller
 {
@@ -28,7 +29,15 @@ class ClientesController extends Controller
     public function administrar()
     {
         $clientes = Cliente::buscar();
+
         return view('administracao-clientes', compact('clientes'));
+    }
+
+    public function usuariosCliente()
+    {
+        $usuarios = User::encontrar($_POST);
+
+        return $this->responderJSON($usuarios);
     }
 
     public function clientes()

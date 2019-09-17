@@ -36,6 +36,7 @@ if(isset($_SESSION['hierarquia']) && $_SESSION['hierarquia'] == 'user'){
     $router->get("$folder/clientes", 'ClientesController@clientes');
     $router->post("$folder/atualiza-cliente", 'ClientesController@update');
     $router->post("$folder/deletar-cliente", 'ClientesController@destroy');
+    $router->post("$folder/usuarios-cliente", 'ClientesController@usuariosCliente');
     
     $router->get("$folder/tela-login", 'UsersController@index');
     $router->get("$folder/cadastro-usuarios", 'UsersController@cadastro');
