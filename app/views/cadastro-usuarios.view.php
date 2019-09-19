@@ -50,12 +50,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="cliente">Cliente: </label>
-                                                <input class="form-control" name="clienteId" list="clientes" />
-                                                <datalist id="clientes">
-                                                    <?php foreach($clientes as $cliente): ?>
-                                                    <option value="<?=$cliente->id;?>"><?=$cliente->nome;?></option>
-                                                    <?php endforeach; ?>
-                                                </datalist>
+                                                <input class="form-control" name="clienteId" type="text" />
                                             </div>
                                         </div>
 

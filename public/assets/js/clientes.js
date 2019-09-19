@@ -1,5 +1,6 @@
 $("#sucesso").hide();
 $("#erro").hide();
+$("#cnpj").mask('00.000.000/0000-00');
 
 $("#cliente").submit(function(){
 
@@ -7,24 +8,83 @@ $("#cliente").submit(function(){
 
     var dados = $("#cliente").serialize();
 
-    $.post("cadastrar-cliente", dados, response => {
-        cliente = JSON.parse(response);
-    })
+    if(validarCnpj() == true){
 
-    .done(() => {
-        $("#sucesso").fadeToggle(300);
-        window.setTimeout(() => {
-            $("#sucesso").fadeToggle(300);
-        }, 1500);
-      })
-      .fail(() => $("#erro").show(200));
+        $.post("cadastrar-cliente", dados, response => {
+            cliente = JSON.parse(response);
+        })
+        .done(() => {
+            exibirSucesso();
+          })
+        .fail(() => $("#erro").show(200));
+
+    }else{
+
+        alert("Por favor digite um cnpj válido.");
+
+    }
   
 });
 
-$("#cnpj").on("keyup", function(e)
+function exibirSucesso()
 {
-    $(this).val(
-        $(this).val()
-        .replace(/\D/g, '')
-        .replace(/^(\d{2})(\d{3})?(\d{3})?(\d{4})?(\d{2})?/, "$1 $2 $3/$4-$5"));
-});
+    $("#sucesso").fadeToggle(300);
+
+        window.setTimeout(() => {
+            $("#sucesso").fadeToggle(300);
+
+    }, 1500);
+}
+
+function validarCnpj() {
+ 
+    var cnpjInput = $("#cnpj").val();
+    cnpj = cnpjInput.replace(/[^\d]+/g,'');
+ 
+    if(cnpj == '') return false;
+     
+    if (cnpj.length != 14)
+        return false;
+ 
+    if (cnpj == "00000000000000" || 
+        cnpj == "11111111111111" || 
+        cnpj == "22222222222222" || 
+        cnpj == "33333333333333" || 
+        cnpj == "44444444444444" || 
+        cnpj == "55555555555555" || 
+        cnpj == "66666666666666" || 
+        cnpj == "77777777777777" || 
+        cnpj == "88888888888888" || 
+        cnpj == "99999999999999")
+        return false;
+         
+    tamanho = cnpj.length - 2
+    numeros = cnpj.substring(0,tamanho);
+    digitos = cnpj.substring(tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(0))
+        return false;
+         
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0,tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(1))
+          return false;
+           
+    return true;
+    
+}

@@ -20,6 +20,7 @@ class ClientesController extends Controller
         $cnpj = str_replace('/','',$cnpj);
         $cnpj = str_replace(' ','',$cnpj);
         $cnpj = str_replace('-','',$cnpj);
+        $cnpj = str_replace('.','',$cnpj);
         $cliente['cnpj'] = $cnpj;
         $clienteId = Cliente::cadastrar($cliente);
 
@@ -49,6 +50,13 @@ class ClientesController extends Controller
     public function update()
     {
         $cliente = $_POST;
+        $cnpj = $cliente['cnpj'];
+        $cnpj = str_replace('/','',$cnpj);
+        $cnpj = str_replace(' ','',$cnpj);
+        $cnpj = str_replace('-','',$cnpj);
+        $cnpj = str_replace('.','',$cnpj);
+        $cliente['cnpj'] = $cnpj;
+        
         Cliente::atualizar($cliente);
 
         return $this->responderJSON($cliente);

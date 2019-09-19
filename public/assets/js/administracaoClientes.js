@@ -1,4 +1,5 @@
 $(".usuarios").hide();
+$("#editar-cnpj").mask('00.000.000/0000-00');
 
 var usuarios = [];
 
@@ -7,6 +8,7 @@ function editarCliente(cliente)
 
     $("#ver-mais").show();
     $("#editar-id").val($(`#id-${cliente.id}`).html());
+    $("#clienteId").val($(`#id-${cliente.id}`).html());
     $("#editar-nome").val($(`#nome-${cliente.id}`).html());
     $("#editar-cnpj").val($(`#cnpj-${cliente.id}`).html());
     $("#editar-sirius").val($(`#sirius-${cliente.id}`).html());
@@ -27,9 +29,9 @@ $(".close").click(() => {
 
 function deletar(cliente){
 
-    var dados = $("#editar-cliente").serialize();
+    let dados = $("#editar-cliente").serialize();
 
-    var r = confirm("Você realmente deseja excluir os registros deste cliente?");
+    let r = confirm("Você realmente deseja excluir os registros deste cliente?");
 
     if(r == true){
 
@@ -55,38 +57,75 @@ function deletar(cliente){
 
 }
 
-$("#editar-cliente").submit(() => {
+function deletarUsuario(usuario){
+
+    let dados = {id: usuario.id};
+
+    let r = confirm("Você realmente deseja excluir os registros desse usuário?");
+
+    if(r == true){
+
+        $.post("deletar-usuario", dados, response => {
+
+            usuario = JSON.parse(response);
+    
+        }).done(() => {
+    
+            $(`#usuario-${usuario}`).hide(300);
+    
+        }).fail(() => {
+    
+            alert("Ocorreu um erro. Tente novamente mais tarde!")
+    
+        });
+
+    }
+
+}
+
+$("#botao-salvar").click(() => {
 
     event.preventDefault();
 
     var dados = $("#editar-cliente").serialize();
 
-    $.post('atualiza-cliente', dados, response => {
+    if(validarCnpj() == true){
 
-        cliente = JSON.parse(response);
+        $.post('atualiza-cliente', dados, response => {
 
-    }).done(function(){
+            cliente = JSON.parse(response);
+    
+        }).done(function(){
+    
+            $(`#nome-${cliente.id}`).html(cliente.nome);
+            $(`#cnpj-${cliente.id}`).html(cliente.cnpj);
+            $(`#sirius-${cliente.id}`).html(cliente.sirius);
+            $(`#responsavel-${cliente.id}`).html(cliente.responsavel);
+            $(`#site-${cliente.id}`).html(cliente.site);
+            $(`#email-${cliente.id}`).html(cliente.email);
+    
+        }).fail(function(){
+    
+            alert("Ocorreu um erro! Tente novamente mais tarde.")
+    
+        }).always(() => {
+    
+            $("#ver-mais").hide();
+    
+        });
 
-        $(`#nome-${cliente.id}`).html(cliente.nome);
-        $(`#cnpj-${cliente.id}`).html(cliente.cnpj);
-        $(`#sirius-${cliente.id}`).html(cliente.sirius);
-        $(`#responsavel-${cliente.id}`).html(cliente.responsavel);
-        $(`#site-${cliente.id}`).html(cliente.site);
-        $(`#email-${cliente.id}`).html(cliente.email);
+    }else{
 
-    }).fail(function(){
+        alert("Por favor digite um cnpj válido.");
 
-        alert("Ocorreu um erro! Tente novamente mais tarde.")
-
-    }).always(() => {
-
-        $("#ver-mais").hide();
-
-    });
+    }
 
 });
 
 $(document).ready(() => {
+
+    $("#cadastro-usuario").hide();
+    $("#erro").hide();
 
     $('#tabelaClientes').DataTable({
         reponsive:true,
@@ -121,6 +160,7 @@ $("#botao-usuarios").click(() => {
 
     $(".dados").hide();
     $(".usuarios").fadeIn(200);
+    $("#tabela-usuarios").fadeIn(200);
     $("#botao-usuarios").attr('disabled', true);
     $("#botao-dados").attr('disabled', false);
 
@@ -129,6 +169,7 @@ $("#botao-usuarios").click(() => {
 $("#botao-dados").click(() => {
 
     $(".usuarios").hide();
+    $("#cadastro-usuario").hide();
     $(".dados").fadeIn(200);
     $("#botao-usuarios").attr('disabled', false);
     $("#botao-dados").attr('disabled', true);
@@ -137,17 +178,139 @@ $("#botao-dados").click(() => {
 
 function popularTabela(clienteId)
 {
+    let users;
+
     $.post('usuarios-cliente', clienteId, resposta => {
 
         users = JSON.parse(resposta);
-        console.log(resposta);
 
-        $.each(users, (item) => {
-            console.log(item.email);
-            $('#usuario-nome').html(item.nome);
-            $('#usuario-usuario').html(item.usuario);
-            $('#usuario-senha').html(item.senha);
+        $("#linha-usuarios").html("");
+
+        $(users).each((index, valor) => {
+
+            $("#linha-usuarios").append(
+                `<tr id="usuario-${valor.id}">
+                <td>${valor.nome}</td>
+                <td>${valor.usuario}</td>
+                <td>${valor.senha}</td>
+                <td>
+                    <a href="#" style="color:red;" id="${valor.id}" onclick="deletarUsuario(this);">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+                </tr>`
+            );
+    
         });
-
     });
+
+}
+
+$("#botao-novo").click(() => {
+
+    $("#tabela-usuarios").hide();
+    $("#cadastro-usuario").fadeIn(200);
+
+});
+
+$("#usuario").submit(() => {
+
+    event.preventDefault();
+    let dados = $("#usuario").serialize();
+
+    alert(dados);
+
+});
+
+$("#botao-cadastrar-usuario").click(() => {
+
+    if($("#novoUsuario-senha").val() == $("#novoUsuario-repetir_senha").val()){
+
+        let dados = $("#usuario").serialize();
+
+        $.post("cadastrar-usuario", dados, response => {
+            cliente = JSON.parse(response);
+            console.log(cliente.clienteId);
+        })
+    
+        .done(() => {
+
+            $("#linha-usuarios").append(
+                `<tr>
+                <td>${$("#novoUsuario-nome").val()}</td>
+                <td>${$("#novoUsuario-usuario").val()}</td>
+                <td>${$("#novoUsuario-senha").val()}</td>
+                <td>
+                    <a href="#" style="color:red;" id="asd">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+                </tr>`
+            );
+
+            $("#cadastro-usuario").hide();
+            $("#tabela-usuarios").fadeIn(200);
+
+          })
+          .fail(() => $("#erro").show(200));
+
+    }else{
+
+        alert("As senhas não coincidem!");
+
+    }
+  
+});
+
+function validarCnpj() {
+ 
+    var cnpjInput = $("#editar-cnpj").val();
+    cnpj = cnpjInput.replace(/[^\d]+/g,'');
+ 
+    if(cnpj == '') return false;
+     
+    if (cnpj.length != 14)
+        return false;
+ 
+    if (cnpj == "00000000000000" || 
+        cnpj == "11111111111111" || 
+        cnpj == "22222222222222" || 
+        cnpj == "33333333333333" || 
+        cnpj == "44444444444444" || 
+        cnpj == "55555555555555" || 
+        cnpj == "66666666666666" || 
+        cnpj == "77777777777777" || 
+        cnpj == "88888888888888" || 
+        cnpj == "99999999999999")
+        return false;
+         
+    tamanho = cnpj.length - 2
+    numeros = cnpj.substring(0,tamanho);
+    digitos = cnpj.substring(tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(0))
+        return false;
+         
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0,tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(1))
+          return false;
+           
+    return true;
+    
 }

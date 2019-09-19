@@ -40,19 +40,19 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
-                                                                    <td><?=$arquivo->id;?></td>
-                                                                    <td><?=$arquivo->nome; ?></td>
-                                                                    <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></td>
-                                                                    <td>
+                                                                    <td><b><?=$arquivo->id;?></b></td>
+                                                                    <td><b><?=$arquivo->nome; ?></b></td>
+                                                                    <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
+                                                                    <td><b>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <img src="public/assets/img/abrir.png" width="30px">
                                                                         </a>
-                                                                    </td>
-                                                                    <td>
+                                                                    </b></td>
+                                                                    <td><b>
                                                                         <a id="<?=$arquivo->id;?>" onclick="arquivar(this);" href="#">
                                                                             <img src="public/assets/img/arquivar.png" width="30px">
                                                                         </a>
-                                                                    </td>
+                                                                    </b></td>
                                                                 </tr>
                                                             </div>
                                                         </div>

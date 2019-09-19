@@ -1,21 +1,16 @@
 $("#sucesso").hide();
 $("#erro").hide();
 
-$("#usuario").submit(function(){
+$("#botao-usuario").click(() => {
 
-    event.preventDefault();
-
-    var dados = $("#usuario").serialize();
+    let dados = $("#usuario").serialize();
 
     $.post("cadastrar-usuario", dados, response => {
         cliente = JSON.parse(response);
     })
 
     .done(() => {
-        $("#sucesso").fadeToggle(300);
-        window.setTimeout(() => {
-            $("#sucesso").fadeToggle(300);
-        }, 1500);
+        alert("Cadastrado com sucesso!");
       })
       .fail(() => $("#erro").show(200));
   

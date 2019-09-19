@@ -9,10 +9,22 @@
                 </div>
                 <div class="row">
                     <input id="editar-id" type="hidden" name="id">
-                    <div class="col-md-4"><input id="editar-nome" type="text" class="form-control" name="nome" placeholder="Nome"></div>
-                    <div class="col-md-4"><input id="editar-user" type="text" class="form-control" name="usuario" placeholder="Usuário" autocomplete="off"></div>
-                    <div class="col-md-4"><input id="editar-senha" type="password" class="form-control" name="senha" placeholder="Senha"></div>
                     <div class="col-md-4">
+                        <label for="nome">Nome:</label>
+                        <input id="editar-nome" type="text" class="form-control" name="nome" placeholder="Nome">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="usuario">Usuário:</label>
+                        <input id="editar-user" type="text" class="form-control" name="usuario" placeholder="Usuário" autocomplete="off">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="senha">Senha:</label>
+                        <input id="editar-senha" type="text" class="form-control" name="senha" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="row" style="padding-top:30px;">
+                    <div class="col-md-4">
+                        <label for="clienteId">Cliente vinculado (id):</label>
                         <input id="editar-cliente" class="form-control" name="clienteId" list="clientes" />
                         <datalist id="clientes">
                             <?php foreach($clientes as $cliente): ?>
@@ -20,8 +32,17 @@
                             <?php endforeach; ?>
                         </datalist>
                     </div>
-                    <div class="col-md-4"><select name="hierarquia" class="form-control" id="editar-hierarquia"><option value="admin">Administrador</option><option value="user">Usuário</option></select></div>
-                    <div class="col-md-4"><input id="editar-email" type="text" class="form-control" name="email" placeholder="Email"></div>
+                    <div class="col-md-4">
+                        <label for="hierarquia">Hierarquia:</label>
+                        <select name="hierarquia" class="form-control" id="editar-hierarquia">
+                            <option value="admin">Administrador</option>
+                            <option value="user">Usuário</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email">Email:</label>
+                        <input id="editar-email" type="text" class="form-control" name="email" placeholder="Email">
+                    </div>
                 </div>
             </div>
             <div class="col-md-12">
