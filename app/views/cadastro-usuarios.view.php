@@ -46,7 +46,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="senha">Senha: </label>
-                                                <input placeholder="********" type="password" class="form-control" name="senha" required>
+                                                <input placeholder="********" type="password" id="usuario-senha" class="form-control" name="senha" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="cliente">Cliente: </label>

@@ -98,4 +98,11 @@ class Arquivos extends Model
         App::get('database')->update(static::$table, $dados, $where = ['id', $arquivo['id']]);
     }
 
+    public static function encontrar($where){
+
+        $result = App::get('database')->selectWhere(static::$table, $where);
+        return $result;
+
+    }
+
 }

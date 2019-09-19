@@ -314,3 +314,11 @@ function validarCnpj() {
     return true;
     
 }
+
+$("#novoUsuario-senha").keyup(() => {
+
+    let str = $("#novoUsuario-senha").val();
+    corrigido = str.replace(" ","");
+    $("#novoUsuario-senha").val(corrigido);
+
+});

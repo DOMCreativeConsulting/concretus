@@ -11,6 +11,14 @@ class ArquivosController extends Controller
     {
         $arquivos = Arquivos::buscar();
 
+        foreach($arquivos as $arquivo){
+
+            $cliente = Cliente::encontrar($arquivo->sirius);
+
+            $arquivo->cliente = $cliente[0]->nome;
+
+        }
+
         return view("lista-arquivos", compact('arquivos'));
     }
 
@@ -33,6 +41,14 @@ class ArquivosController extends Controller
     public function arquivados()
     {
         $arquivos = Arquivos::buscar();
+
+        foreach($arquivos as $arquivo){
+
+            $cliente = Cliente::encontrar($arquivo->sirius);
+
+            $arquivo->cliente = $cliente[0]->nome;
+
+        }
 
         return view("lista-arquivados", compact("arquivos"));
     }
