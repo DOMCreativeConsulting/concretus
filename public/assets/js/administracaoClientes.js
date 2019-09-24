@@ -61,9 +61,9 @@ function deletarUsuario(usuario){
 
     let dados = {id: usuario.id};
 
-    let r = confirm("Você realmente deseja excluir os registros desse usuário?");
+    let respostaUsuario = confirm("Você realmente deseja excluir os registros desse usuário?");
 
-    if(r == true){
+    if(respostaUsuario){
 
         $.post("deletar-usuario", dados, response => {
 
@@ -75,7 +75,7 @@ function deletarUsuario(usuario){
     
         }).fail(() => {
     
-            alert("Ocorreu um erro. Tente novamente mais tarde!")
+            alert("Ocorreu um erro. Tente novamente mais tarde!");
     
         });
 
