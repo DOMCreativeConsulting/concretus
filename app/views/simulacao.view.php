@@ -51,9 +51,9 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
-                                                                    <td><?=$arquivo->id;?></td>
-                                                                    <td><?=$arquivo->nome; ?></td>
-                                                                    <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></td>
+                                                                    <td><b><?=$arquivo->id;?></b></td>
+                                                                    <td><b><?=$arquivo->nome;?></b></td>
+                                                                    <td id="leitura-<?=$arquivo->id;?>"><b><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></b></td>
                                                                     <td>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <button class="btn btn-primary" type="button">

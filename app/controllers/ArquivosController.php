@@ -13,7 +13,8 @@ class ArquivosController extends Controller
 
         foreach($arquivos as $arquivo){
 
-            $cliente = Cliente::encontrar($arquivo->sirius);
+            $where['sirius'] = $arquivo->sirius;
+            $cliente = Cliente::encontrar($where);
 
             $arquivo->cliente = $cliente[0]->nome;
 
@@ -44,7 +45,8 @@ class ArquivosController extends Controller
 
         foreach($arquivos as $arquivo){
 
-            $cliente = Cliente::encontrar($arquivo->sirius);
+            $where['sirius'] = $arquivo->sirius;
+            $cliente = Cliente::encontrar($where);
 
             $arquivo->cliente = $cliente[0]->nome;
 

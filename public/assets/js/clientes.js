@@ -1,6 +1,29 @@
 $("#sucesso").hide();
 $("#erro").hide();
-$("#cnpj").mask('00.000.000/0000-00');
+
+$("#cnpj").keydown(function(){
+    try {
+        $("#cnpj").unmask();
+    } catch (e) {}
+
+    var tamanho = $("#cnpj").val().length;
+
+    if(tamanho < 11){
+        $("#cnpj").mask("999.999.999-99");
+    } else {
+        $("#cnpj").mask("99.999.999/9999-99");
+    }
+
+    var elem = this;
+    
+    setTimeout(function(){
+        elem.selectionStart = elem.selectionEnd = 10000;
+    }, 0);
+
+    var currentValue = $(this).val();
+    $(this).val('');
+    $(this).val(currentValue);
+});
 
 $("#cliente").submit(function(){
 

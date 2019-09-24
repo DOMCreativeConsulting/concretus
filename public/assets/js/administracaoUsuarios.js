@@ -88,6 +88,24 @@ $("#editar-usuario").submit(() => {
 
 });
 
+
+$("#editar-senha").keyup(() => {
+
+    let str = $("#editar-senha").val();
+    corrigido = str.replace(/ /g,'');
+    $("#editar-senha").val(corrigido);
+
+});
+
+$("#editar-user").keyup(() => {
+
+    let str = $("#editar-user").val();
+    corrigido = str.replace(/ /g,'');
+    corrigido = corrigido.replace(/[^a-zA-Z0-9]/g, "");
+    $("#editar-user").val(corrigido);
+
+});
+
 $(document).ready(() => {
 
     $('#tabelaUsuarios').DataTable({

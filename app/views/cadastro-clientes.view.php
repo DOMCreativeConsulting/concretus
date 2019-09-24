@@ -27,8 +27,8 @@
                                                 <input type="text" placeholder="Nome do cliente" class="form-control" name="nome" required>
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="cnpj">CNPJ: </label>
-                                                <input id="cnpj" placeholder="00 000 000/0000-00" type="text" class="form-control" name="cnpj" required>
+                                                <label for="cnpj">CPF / CNPJ: </label>
+                                                <input id="cnpj" type="text" class="form-control" name="cnpj" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="sirius">Código SIRIUS: </label>

@@ -39,8 +39,8 @@
                                                 <tbody>
                                                 <?php foreach($usuarios as $usuario): ?>
 
-                                                    <div class="row">
-                                                        <div class="col-md-12">
+                                                    <!-- <div class="row">
+                                                        <div class="col-md-12"> -->
                                                             <tr style="font-size:13px;" id="usuario-<?=$usuario->id; ?>">
                                                                 <td id="id-<?=$usuario->id; ?>"><?=$usuario->id; ?></td>
                                                                 <td id="nome-<?=$usuario->id; ?>"><?=$usuario->nome; ?></td>
@@ -55,8 +55,8 @@
                                                                 <td id="email-<?=$usuario->id; ?>"><?=$usuario->email; ?></td>
                                                                 <td><a id="<?=$usuario->id; ?>" onclick="editarUsuario(this);" href="javascript:void(0)"><i style="color:green;font-size:24px;" class="fa fa-edit"></i></a></td>
                                                             </tr>
-                                                        </div>
-                                                    </div>
+                                                        <!-- </div>
+                                                    </div> -->
 
                                                 <?php endforeach; ?>
                                                 </tbody>
