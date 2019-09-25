@@ -26,7 +26,7 @@
                             <input id="editar-nome" type="text" class="form-control" name="nome" placeholder="Nome">
                         </div>
                         <div class="col-md-4">
-                            <label for="cnpf">CNPJ:</label>
+                            <label for="cnpj">Cpf / Cnpj:</label>
                             <input id="editar-cnpj" type="text" class="form-control" name="cnpj" placeholder="Cnpj">
                         </div>
                         <div class="col-md-4">

@@ -28,7 +28,7 @@
                                                     <tr>
                                                         <th>#Id</th>
                                                         <th>Nome</th>
-                                                        <th>Cnpj</th>
+                                                        <th>Cpf / Cnpj</th>
                                                         <th>Sirius</th>
                                                         <th>Responsável</th>
                                                         <th>Site</th>

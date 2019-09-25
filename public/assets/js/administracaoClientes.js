@@ -1,7 +1,33 @@
 $(".usuarios").hide();
-$("#editar-cnpj").mask('00.000.000/0000-00');
 
 var usuarios = [];
+var cpf_cnpj;
+
+$("#editar-cnpj").keydown(function(){
+    try {
+        $("#editar-cnpj").unmask();
+    } catch (e) {}
+
+    var tamanho = $("#editar-cnpj").val().length;
+
+    if(tamanho <= 11){
+        $("#editar-cnpj").mask("999.999.999-999");
+        cpf_cnpj = 'cpf';
+    } else {
+        $("#editar-cnpj").mask("99.999.999/9999-99");
+        cpf_cnpj = 'cnpj';
+    }
+
+    var elem = this;
+    
+    setTimeout(function(){
+        elem.selectionStart = elem.selectionEnd = 10000;
+    }, 0);
+
+    var currentValue = $(this).val();
+    $(this).val('');
+    $(this).val(currentValue);
+});
 
 function editarCliente(cliente)
 {
@@ -45,7 +71,7 @@ function deletar(cliente){
     
         }).fail(() => {
     
-            alert("Ocorreu um erro. Tente novamente mais tarde!")
+            alert("Ocorreu um erro. Tente novamente mais tarde!");
     
         }).always(() => {
 
@@ -61,9 +87,9 @@ function deletarUsuario(usuario){
 
     let dados = {id: usuario.id};
 
-    let r = confirm("Você realmente deseja excluir os registros desse usuário?");
+    let respostaUsuario = confirm("Você realmente deseja excluir os registros desse usuário?");
 
-    if(r == true){
+    if(respostaUsuario){
 
         $.post("deletar-usuario", dados, response => {
 
@@ -75,7 +101,7 @@ function deletarUsuario(usuario){
     
         }).fail(() => {
     
-            alert("Ocorreu um erro. Tente novamente mais tarde!")
+            alert("Ocorreu um erro. Tente novamente mais tarde!");
     
         });
 
@@ -89,36 +115,19 @@ $("#botao-salvar").click(() => {
 
     var dados = $("#editar-cliente").serialize();
 
-    if(validarCnpj() == true){
+    if(cpf_cnpj == 'cnpj'){
 
-        $.post('atualiza-cliente', dados, response => {
+        atualizarClienteCnpj(dados);
 
-            cliente = JSON.parse(response);
-    
-        }).done(function(){
-    
-            $(`#nome-${cliente.id}`).html(cliente.nome);
-            $(`#cnpj-${cliente.id}`).html(cliente.cnpj);
-            $(`#sirius-${cliente.id}`).html(cliente.sirius);
-            $(`#responsavel-${cliente.id}`).html(cliente.responsavel);
-            $(`#site-${cliente.id}`).html(cliente.site);
-            $(`#email-${cliente.id}`).html(cliente.email);
-    
-        }).fail(function(){
-    
-            alert("Ocorreu um erro! Tente novamente mais tarde.")
-    
-        }).always(() => {
-    
-            $("#ver-mais").hide();
-    
-        });
+    }else if(cpf_cnpj == 'cpf'){
+
+        atualizarClienteCpf(dados);
 
     }else{
-
-        alert("Por favor digite um cnpj válido.");
-
+        alert('Nenhum CPF ou CNPJ válidos foram inseridos.')
     }
+
+    
 
 });
 
@@ -313,4 +322,120 @@ function validarCnpj() {
            
     return true;
     
+}
+
+function validarCpf(){
+
+    var cpf = $("#editar-cnpj").val();
+
+    strCPF = cpf.replace('.', '');
+    var strCPF1 = strCPF.replace('.', '');
+    var strCPF2 = strCPF1.replace('-', '');
+
+    var Soma;
+    var Resto;
+    Soma = 0;
+
+    if (
+        strCPF2 == "00000000000" ||
+        strCPF2 == "11111111111" ||
+        strCPF2 == "22222222222" ||
+        strCPF2 == "33333333333" ||
+        strCPF2 == "44444444444" ||
+        strCPF2 == "55555555555" ||
+        strCPF2 == "66666666666" ||
+        strCPF2 == "77777777777" ||
+        strCPF2 == "88888888888" ||
+        strCPF2 == "99999999999"
+    ){
+        return false;
+    }
+
+    for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (11 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(9, 10)) ){
+       return false;
+    }
+
+    Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(10, 11) ) ) {
+        return false;
+    }
+
+    return true;
+
+}
+
+function atualizarClienteCpf(dados)
+{
+    if(validarCpf()){
+
+        $.post('atualiza-cliente', dados, response => {
+
+            cliente = JSON.parse(response);
+    
+        }).done(function(){
+    
+            $(`#nome-${cliente.id}`).html(cliente.nome);
+            $(`#cnpj-${cliente.id}`).html(cliente.cnpj);
+            $(`#sirius-${cliente.id}`).html(cliente.sirius);
+            $(`#responsavel-${cliente.id}`).html(cliente.responsavel);
+            $(`#site-${cliente.id}`).html(cliente.site);
+            $(`#email-${cliente.id}`).html(cliente.email);
+    
+        }).fail(function(){
+    
+            alert("Ocorreu um erro! Tente novamente mais tarde.")
+    
+        }).always(() => {
+    
+            $("#ver-mais").hide();
+    
+        });
+
+    }else{
+
+        alert("Por favor digite um cpf válido.");
+
+    }
+}
+
+function atualizarClienteCnpj(dados)
+{
+    if(validarCnpj()){
+
+        $.post('atualiza-cliente', dados, response => {
+
+            cliente = JSON.parse(response);
+    
+        }).done(function(){
+    
+            $(`#nome-${cliente.id}`).html(cliente.nome);
+            $(`#cnpj-${cliente.id}`).html(cliente.cnpj);
+            $(`#sirius-${cliente.id}`).html(cliente.sirius);
+            $(`#responsavel-${cliente.id}`).html(cliente.responsavel);
+            $(`#site-${cliente.id}`).html(cliente.site);
+            $(`#email-${cliente.id}`).html(cliente.email);
+    
+        }).fail(function(){
+    
+            alert("Ocorreu um erro! Tente novamente mais tarde.")
+    
+        }).always(() => {
+    
+            $("#ver-mais").hide();
+    
+        });
+
+    }else{
+
+        alert("Por favor digite um cnpj válido.");
+
+    }
 }
