@@ -44,7 +44,7 @@
                                                                     <td><?=$arquivo->nome; ?></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></td>
                                                                     <td>
-                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
+                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$arquivo->nome;?>">
                                                                             <button class="btn btn-primary" type="button">
                                                                                 <i class="fa fa-file"></i>
                                                                             </button>

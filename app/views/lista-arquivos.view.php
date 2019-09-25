@@ -46,7 +46,7 @@
                                                                     <td><b><?=$arquivo->cliente; ?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
                                                                     <td><b>
-                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
+                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$arquivo->cnpj;?>/<?=$arquivo->nome;?>">
                                                                             <img src="public/assets/img/abrir.png" width="30px">
                                                                         </a>
                                                                     </b></td>

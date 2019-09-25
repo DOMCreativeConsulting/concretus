@@ -17,6 +17,7 @@ class ArquivosController extends Controller
             $cliente = Cliente::encontrar($where);
 
             $arquivo->cliente = $cliente[0]->nome;
+            $arquivo->cnpj = $cliente[0]->cnpj;
 
         }
 
