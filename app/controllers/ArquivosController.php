@@ -14,11 +14,15 @@ class ArquivosController extends Controller
 
         foreach($arquivos as $arquivo){
 
-            $where['sirius'] = $arquivo->sirius;
-            $usuario = User::encontrar($where);
+            $whereUsuario['sirius'] = $arquivo->sirius;
+            $usuario = User::encontrar($whereUsuario);
+
+            $whereCliente['clienteId'] = $arquivo->clienteId;
+            $cliente = Cliente::encontrar($whereCliente);
 
             $arquivo->sirius = $usuario[0]->sirius;
             $arquivo->usuario = $usuario[0]->nome;
+            $arquivo->cnpj = $cliente[0]->cnpj;
 
         }
 
@@ -47,10 +51,15 @@ class ArquivosController extends Controller
 
         foreach($arquivos as $arquivo){
 
-            $where['sirius'] = $arquivo->sirius;
-            $usuario = User::encontrar($where);
+            $whereUsuario['sirius'] = $arquivo->sirius;
+            $usuario = User::encontrar($whereUsuario);
+
+            $whereCliente['clienteId'] = $usuario->clienteId;
+            $cliente = Cliente::encontrar($whereCliente);
 
             $arquivo->usuario = $usuario[0]->nome;
+            $arquivo->sirius = $usuario[0]->sirius;
+            $arquivo->cnpj = $cliente[0]->cnpj;
 
         }
 

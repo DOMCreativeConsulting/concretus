@@ -1,6 +1,7 @@
 $(document).ready(() => {
 
     $('#tabelaArquivos').DataTable({
+        "order": [[0, "desc"]],
         "language":{
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -38,7 +39,7 @@ function marcarLido(arquivo){
 
         id = dados.id;
 
-        $(`#leitura-${id}`).html('Lido');
+        $(`#leitura-${id}`).html('<b>Lido</b>');
 
     });
 

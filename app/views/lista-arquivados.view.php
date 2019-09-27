@@ -15,7 +15,7 @@
                                 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h2 class="title"><i class="fa fa-file"></i> Lista de Arquivos <br /><small style="font-size:15px;">Arquivados</small></h2>
+                                        <h2 class="title"><i class="fa fa-archive"></i> Lista de Arquivados <br /><small style="font-size:15px;">Arquivados</small></h2>
                                     </div>
                                 </div>
 
@@ -46,7 +46,7 @@
                                                                     <td><b><?=$arquivo->usuario; ?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
                                                                     <td><b>
-                                                                        <a target="_blank" id="<?=$arquivo->id;?>" onclick="marcarLido(this);" href="public/files/<?=$arquivo->cnpj;?>/<?=$arquivo->nome;?>">
+                                                                        <a target="_blank" id="<?=$arquivo->id;?>" onclick="marcarLido(this);" href="public/files/<?=$arquivo->cnpj;?>/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <img src="public/assets/img/abrir.png" width="30px">
                                                                         </a>
                                                                     </b></td>
