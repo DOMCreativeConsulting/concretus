@@ -202,6 +202,7 @@ function popularTabela(clienteId)
                 <td>${valor.nome}</td>
                 <td>${valor.usuario}</td>
                 <td>${valor.senha}</td>
+                <td>${valor.sirius}</td>
                 <td>
                     <a href="#" style="color:red;" id="${valor.id}" onclick="deletarUsuario(this);">
                         <i class="fa fa-trash"></i>
@@ -249,6 +250,7 @@ $("#botao-cadastrar-usuario").click(() => {
                 <td>${$("#novoUsuario-nome").val()}</td>
                 <td>${$("#novoUsuario-usuario").val()}</td>
                 <td>${$("#novoUsuario-senha").val()}</td>
+                <td>${$("#novoUsuario-sirius").val()}</td>
                 <td>
                     <a href="#" style="color:red;" id="asd">
                         <i class="fa fa-trash"></i>

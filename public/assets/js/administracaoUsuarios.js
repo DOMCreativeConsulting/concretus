@@ -16,6 +16,7 @@ function editarUsuario(usuario){
     $("#editar-user").val($(`#user-${usuario.id}`).html());
     $("#editar-senha").val($(`#senha-${usuario.id}`).val());
     $("#editar-cliente").val($(`#cliente-${usuario.id}`).html());
+    $("#editar-sirius").val($(`#sirius-${usuario.id}`).html());
     $("#editar-hierarquia").val($(`#hierarquia-${usuario.id}`).html());
     $("#editar-email").val($(`#email-${usuario.id}`).html());
 
@@ -73,6 +74,7 @@ $("#editar-usuario").submit(() => {
         $(`#user-${usuario.id}`).html(usuario.usuario);
         $(`#senha-real-${usuario.id}`).html(usuario.senha);
         $(`#cliente-${usuario.id}`).html(usuario.clienteId);
+        $(`#sirius-${usuario.id}`).html(usuario.sirius);
         $(`#hierarquia-${usuario.id}`).html(usuario.hierarquia);
         $(`#email-${usuario.id}`).html(usuario.email);
 

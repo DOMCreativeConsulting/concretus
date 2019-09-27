@@ -57,6 +57,7 @@
                             <th>Nome</th>
                             <th>Usuário</th>
                             <th>Senha</th>
+                            <th>Sirius</th>
                             <th>Deletar</th>
                         </thead>
                         <tbody id="linha-usuarios">

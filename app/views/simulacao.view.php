@@ -56,14 +56,12 @@
                                                                     <td id="leitura-<?=$arquivo->id;?>"><b><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></b></td>
                                                                     <td>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$usuario[0]->sirius;?>/<?=$arquivo->nome;?>">
-                                                                            <button class="btn btn-primary" type="button">
-                                                                                <i class="fa fa-file"></i>
-                                                                            </button>
+                                                                            <img src="public/assets/img/abrir.png" width="30px">
                                                                         </a>
                                                                     </td>
                                                                     <td>
                                                                         <a id="<?=$arquivo->id;?>" onclick="arquivar(this);" href="#">
-                                                                            <i class="fa fa-archive arquivar"></i>
+                                                                            <img src="public/assets/img/arquivar.png" width="30px">
                                                                         </a>
                                                                     </td>
                                                                 </tr>
@@ -125,9 +123,7 @@
                                                                     <td id="leitura-<?=$arquivo->id;?>"><b><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></b></td>
                                                                     <td><b>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$usuario[0]->sirius;?>/<?=$arquivo->nome;?>">
-                                                                            <button class="btn btn-primary" type="button">
-                                                                                <i class="fa fa-file"></i>
-                                                                            </button>
+                                                                            <img src="public/assets/img/abrir.png" width="30px">
                                                                         </a>
                                                                     </b></td>
                                                                     <td><b>
