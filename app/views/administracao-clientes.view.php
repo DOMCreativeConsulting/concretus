@@ -29,7 +29,6 @@
                                                         <th>#Id</th>
                                                         <th>Nome</th>
                                                         <th>Cpf / Cnpj</th>
-                                                        <th>Sirius</th>
                                                         <th>Responsável</th>
                                                         <th>Site</th>
                                                         <th>Email</th>
@@ -44,7 +43,6 @@
                                                                 <td id="id-<?=$cliente->id; ?>"><?=$cliente->id; ?></td>
                                                                 <td id="nome-<?=$cliente->id; ?>"><?=$cliente->nome; ?></td>
                                                                 <td id="cnpj-<?=$cliente->id; ?>"><?=$cliente->cnpj; ?></td>
-                                                                <td id="sirius-<?=$cliente->id; ?>"><?=$cliente->sirius; ?></td>
                                                                 <td id="responsavel-<?=$cliente->id; ?>"><?=$cliente->responsavel; ?></td>
                                                                 <td id="site-<?=$cliente->id; ?>"><?=$cliente->site; ?></td>
                                                                 <td id="email-<?=$cliente->id; ?>"><?=$cliente->email; ?></td>

@@ -27,7 +27,7 @@
                                                 <tr>
                                                     <th>#Id</th>
                                                     <th>Nome</th>
-                                                    <th>Cliente</th>
+                                                    <th>Usuário</th>
                                                     <th>Status</th>
                                                     <th>Exibir</th>
                                                     <th>Arquivar</th>
@@ -43,7 +43,7 @@
                                                                 <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
                                                                     <td><b><?=$arquivo->id;?></b></td>
                                                                     <td><b><?=$arquivo->nome; ?></b></td>
-                                                                    <td><b><?=$arquivo->cliente; ?></b></td>
+                                                                    <td><b><?=$arquivo->usuario; ?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
                                                                     <td><b>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$arquivo->cnpj;?>/<?=$arquivo->nome;?>">

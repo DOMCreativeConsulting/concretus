@@ -37,9 +37,9 @@ class Arquivos extends Model
 
     public static function listaPasta()
     {
-        if(file_exists("public/files/".$_SESSION['cnpj'])){
+        if(file_exists("public/files/".$_SESSION['cnpj']."/".$_SESSION['sirius'])){
 
-            $pasta = opendir("public/files/".$_SESSION['cnpj']);
+            $pasta = opendir("public/files/".$_SESSION['cnpj']."/".$_SESSION['sirius']);
 
         }else{
             die('A pasta do cliente não foi encontrada! <br><a href="logout">Sair</a>');

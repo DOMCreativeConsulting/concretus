@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\models\Cliente;
 use App\models\Arquivos;
+use App\models\User;
 
 class ArquivosController extends Controller
 {
@@ -14,10 +15,10 @@ class ArquivosController extends Controller
         foreach($arquivos as $arquivo){
 
             $where['sirius'] = $arquivo->sirius;
-            $cliente = Cliente::encontrar($where);
+            $usuario = User::encontrar($where);
 
-            $arquivo->cliente = $cliente[0]->nome;
-            $arquivo->cnpj = $cliente[0]->cnpj;
+            $arquivo->sirius = $usuario[0]->sirius;
+            $arquivo->usuario = $usuario[0]->nome;
 
         }
 
@@ -47,9 +48,9 @@ class ArquivosController extends Controller
         foreach($arquivos as $arquivo){
 
             $where['sirius'] = $arquivo->sirius;
-            $cliente = Cliente::encontrar($where);
+            $usuario = User::encontrar($where);
 
-            $arquivo->cliente = $cliente[0]->nome;
+            $arquivo->usuario = $usuario[0]->nome;
 
         }
 

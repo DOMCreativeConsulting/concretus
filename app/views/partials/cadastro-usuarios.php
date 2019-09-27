@@ -24,7 +24,7 @@
         <div class="row pt20">
             <div class="col-md-4">
                 <label for="usuario">Usuário: </label>
-                <input type="text" placeholder="Nome de usuário. Ex: PauloDF_91" class="form-control" id="novoUsuario-usuario" name="usuario" required>
+                <input type="text" placeholder="Nome de usuário." class="form-control" id="novoUsuario-usuario" name="usuario" required>
             </div>
             <div class="col-md-4">
                 <label for="senha">Senha: </label>
@@ -37,7 +37,11 @@
         </div>
 
         <div class="row pt30">
-            <div class="col-md-4 offset-md-4">
+            <div class="col-md-4">
+                <label for="sirius">Código Sirius: </label>
+                <input type="text" class="form-control" placeholder="00000" name="sirius" id="novoUsuario-sirius">
+            </div>
+            <div class="col-md-4" style="margin-top:32px;">
                 <button type="button" id="botao-cadastrar-usuario" class="btn btn-primary full-width">
                     Cadastrar
                 </button>

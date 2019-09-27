@@ -30,8 +30,8 @@
                             <input id="editar-cnpj" type="text" class="form-control" name="cnpj" placeholder="Cnpj">
                         </div>
                         <div class="col-md-4">
-                            <label for="sirius">Sirius:</label>
-                            <input id="editar-sirius" type="text" class="form-control" name="sirius" placeholder="Código sirius">
+                            <label for="email">Email:</label>
+                            <input id="editar-email" type="text" class="form-control" name="email" placeholder="Email">
                         </div>
                     </div>
 
@@ -43,10 +43,6 @@
                         <div class="col-md-4">
                             <label for="site">Site:</label>
                             <input id="editar-site" type="text" class="form-control" name="site" placeholder="Site">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="email">Email:</label>
-                            <input id="editar-email" type="text" class="form-control" name="email" placeholder="Email">
                         </div>
                     </div>
                 

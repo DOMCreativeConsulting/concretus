@@ -46,7 +46,7 @@
                                             <tbody>
                                             
                                                 <?php foreach($arquivos as $arquivo): ?>
-                                                    <?php if($arquivo->status == 'entrada' && $arquivo->sirius == $cliente[0]->sirius): ?>
+                                                    <?php if($arquivo->status == 'entrada' && $arquivo->sirius == $usuario[0]->sirius): ?>
 
                                                         <div class="row">
                                                             <div class="col-md-12">
@@ -55,7 +55,7 @@
                                                                     <td><b><?=$arquivo->nome;?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><b><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></b></td>
                                                                     <td>
-                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$arquivo->nome;?>">
+                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$usuario[0]->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <button class="btn btn-primary" type="button">
                                                                                 <i class="fa fa-file"></i>
                                                                             </button>
@@ -115,26 +115,26 @@
                                             <tbody>
                                             
                                                 <?php foreach($arquivos as $arquivo): ?>
-                                                    <?php if($arquivo->status == 'arquivado' && $arquivo->sirius == $cliente[0]->sirius): ?>
+                                                    <?php if($arquivo->status == 'arquivado' && $arquivo->sirius == $usuario[0]->sirius): ?>
 
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
-                                                                    <td><?=$arquivo->id;?></td>
-                                                                    <td><?=$arquivo->nome; ?></td>
-                                                                    <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></td>
-                                                                    <td>
-                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$arquivo->nome;?>">
+                                                                    <td><b><?=$arquivo->id;?></b></td>
+                                                                    <td><b><?=$arquivo->nome;?></b></td>
+                                                                    <td id="leitura-<?=$arquivo->id;?>"><b><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></b></td>
+                                                                    <td><b>
+                                                                        <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$usuario[0]->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <button class="btn btn-primary" type="button">
                                                                                 <i class="fa fa-file"></i>
                                                                             </button>
                                                                         </a>
-                                                                    </td>
-                                                                    <td>
+                                                                    </b></td>
+                                                                    <td><b>
                                                                         <a id="<?=$arquivo->id;?>" onclick="desarquivar(this);" href="#">
                                                                             <i class="fa fa-arrow-up desarquivar"></i></i>
                                                                         </a>
-                                                                    </td>
+                                                                    </b></td>
                                                                 </tr>
                                                             </div>
                                                         </div>

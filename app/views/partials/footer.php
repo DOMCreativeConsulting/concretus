@@ -7,7 +7,7 @@
                         Copyright &copy; 2019 Concretus
                     </div>
                     <div class="col-sm-6 text-right">
-                        Desenvolvido por <a href="https://dom.com.vc">DOM</a>
+                        Desenvolvido por <a href="https://amaismkt.com.br" target="_blank">A+</a>
                     </div>
                 </div>
             </div>

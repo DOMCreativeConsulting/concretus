@@ -31,8 +31,8 @@
                                                 <input id="cnpj" type="text" class="form-control" name="cnpj" required>
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="sirius">Código SIRIUS: </label>
-                                                <input type="text" placeholder="000000" class="form-control" name="sirius" required>
+                                                <label for="email">Email: </label>
+                                                <input type="email" placeholder="exemplo@email.com" class="form-control" name="email">
                                             </div>
                                         </div>
 
@@ -45,14 +45,7 @@
                                                 <label for="site">Site: </label>
                                                 <input type="text" placeholder="http://meusite.com.br/" class="form-control" name="site">
                                             </div>
-                                            <div class="col-md-4">
-                                                <label for="email">Email: </label>
-                                                <input type="email" placeholder="exemplo@email.com" class="form-control" name="email">
-                                            </div>
-                                        </div>
-
-                                        <div class="row pt30">
-                                            <div class="col-md-4 offset-md-4">
+                                            <div class="col-md-4" style="margin-top:32px;">
                                                 <button type="submit" id="botao-cadastrar" class="btn btn-primary full-width">
                                                     Cadastrar
                                                 </button>
