@@ -38,7 +38,8 @@
                                                 <tr>
                                                     <th>#Id</th>
                                                     <th>Nome</th>
-                                                    <th>Vizualização</th>
+                                                    <th>Status</th>
+                                                    <th>Marcador</th>
                                                     <th>Exibir</th>
                                                     <th>Arquivar</th>
                                                 </tr>
@@ -54,6 +55,22 @@
                                                                     <td><b><?=$arquivo->id;?></b></td>
                                                                     <td><b><?=$arquivo->nome;?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><b><?=$arquivo->lido ? 'Lido' : '<b>Não</b> lido'; ?></b></td>
+                                                                    <td>
+                                                                        <div id="marker-<?=$arquivo->id;?>" style="display:none;" class="marker-dropdown">
+                                                                            <ul style="margin:0px !important;">
+                                                                                    <li><b>Marcadores</b></li>
+                                                                                    <hr style="margin:0px !important;">
+                                                                                <?php foreach($marcadores as $marcador): ?>
+                                                                                    <a onclick="trocarMarcador(this);" id="<?=$arquivo->id;?>/<?=$marcador->nome;?>" href="#"><li><?=$marcador->nome;?></li></a>
+                                                                                    <hr style="margin:0px !important;">
+                                                                                <?php endforeach; ?>
+                                                                                    <a class="marker-close" href="#"><li><b>CANCELAR</b></li></a>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <?=$arquivo->marcador;?></span>
+                                                                        <a style="color:green;font-size:26px;" id="<?=$arquivo->id;?>" onclick="marker(this);" href="#">
+                                                                        <i class="fa fa-angle-down"></i></a>
+                                                                    </td>
                                                                     <td>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$cliente[0]->cnpj;?>/<?=$usuario[0]->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <img src="public/assets/img/abrir.png" width="30px">

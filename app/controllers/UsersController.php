@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\models\User;
 use App\models\Cliente;
 use App\models\Arquivos;
+use App\models\Marcadores;
 
 class UsersController extends Controller
 {
@@ -95,13 +96,15 @@ class UsersController extends Controller
     {
         $usuario = User::encontrar($_POST);
 
+        $marcadores = Marcadores::buscar();
+
         $clienteId['id'] = $usuario[0]->clienteId;
 
         $cliente = Cliente::encontrar($clienteId);
 
         $arquivos = Arquivos::buscar();
 
-        return view('simulacao', compact('arquivos', 'cliente', 'usuario'));
+        return view('simulacao', compact('arquivos', 'cliente', 'usuario', 'marcadores'));
     }
 
     public function cadastrarEmail()

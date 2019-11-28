@@ -53,4 +53,8 @@ if(isset($_SESSION['hierarquia']) && $_SESSION['hierarquia'] == 'user'){
     $router->get("$folder/listar-arquivos", 'ArquivosController@lista');
     $router->get("$folder/arquivados", 'ArquivosController@arquivados');
 
+    $router->get("$folder/marcadores", 'MarcadoresController@index');
+    $router->post("$folder/cadastrar-marcadores", 'MarcadoresController@cadastrar');
+    $router->post("$folder/deletar-marcador", 'MarcadoresController@deletar');
+
 }

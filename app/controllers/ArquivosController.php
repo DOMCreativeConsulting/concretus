@@ -17,7 +17,7 @@ class ArquivosController extends Controller
             $whereUsuario['sirius'] = $arquivo->sirius;
             $usuario = User::encontrar($whereUsuario);
 
-            $whereCliente['clienteId'] = $arquivo->clienteId;
+            $whereCliente['id'] = $usuario[0]->clienteId;
             $cliente = Cliente::encontrar($whereCliente);
 
             $arquivo->sirius = $usuario[0]->sirius;
@@ -54,7 +54,7 @@ class ArquivosController extends Controller
             $whereUsuario['sirius'] = $arquivo->sirius;
             $usuario = User::encontrar($whereUsuario);
 
-            $whereCliente['clienteId'] = $usuario->clienteId;
+            $whereCliente['id'] = $usuario[0]->clienteId;
             $cliente = Cliente::encontrar($whereCliente);
 
             $arquivo->usuario = $usuario[0]->nome;

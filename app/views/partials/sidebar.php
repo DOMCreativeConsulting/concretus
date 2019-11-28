@@ -27,6 +27,9 @@
                             <li><i class="fa fa-archive"></i><a href="arquivados">Arquivados (Ver todos)</a></li>
                         </ul>
                     </li>
+                    <li class="menu-item">
+                        <a href="marcadores"> <i class="menu-icon fa fa-tag"></i>Marcadores</a>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -29,6 +29,7 @@
                                                     <th>Nome</th>
                                                     <th>Usuário</th>
                                                     <th>Status</th>
+                                                    <th>Marcador</th>
                                                     <th>Exibir</th>
                                                     <th>Mover p/ C. Entrada</th>
                                                 </tr>
@@ -45,6 +46,7 @@
                                                                     <td><b><?=$arquivo->nome; ?></b></td>
                                                                     <td><b><?=$arquivo->usuario; ?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
+                                                                    <td><b><?=$arquivo->marcador;?></b></td>
                                                                     <td><b>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" onclick="marcarLido(this);" href="public/files/<?=$arquivo->cnpj;?>/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <img src="public/assets/img/abrir.png" width="30px">

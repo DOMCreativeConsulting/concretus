@@ -16,4 +16,14 @@ class Marcadores extends Model
         return $resultado;
     }
 
+    public static function cadastrar($dados)
+    {
+        return App::get('database')->insert(static::$table, $dados);
+    }
+
+    public static function deletar($marcador)
+    {
+        return App::get('database')->delete(static::$table, $where = ["id", $marcador['id']]);
+    }
+
 }

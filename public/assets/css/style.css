@@ -224,3 +224,19 @@ th, td{
     background-color:green;
     color:white;
 }
+
+.markers-list ul{
+    list-style-type: none;
+}
+
+.markers-list li{
+    border:1px solid #d1d1d1;
+    border-radius:5px;
+    margin:2px;
+    padding:1%;
+}
+
+.delete-marker i{
+    float:right;
+    color:red;
+}
