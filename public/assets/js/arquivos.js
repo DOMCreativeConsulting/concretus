@@ -72,3 +72,38 @@ function desarquivar(arquivo){
     });
 
 }
+
+function marker(obj)
+{
+    id = obj.id;
+
+    $(`#marker-${id}`).toggle(200);
+}
+
+function trocarMarcador(obj)
+{
+    let retorno = obj.id.split('/');
+
+    let id = retorno[0];
+    let marcador = retorno[1];
+
+    let dados = {id: id, marcador: marcador};
+
+    $.post('trocar-marcador', dados, response => {
+        console.log(response);
+    });
+    $(`#marker-${id}`).toggle(200);
+    $(`.marker-value-${id}`).html(`<i class="fa fa-tag"></i> `+marcador);
+}
+
+$(".marker-close").click(()=>{
+    $(".marker-dropdown").hide(200);
+});
+
+$("tr .Mais um").hide(1000);
+
+$("#selecionar-marcador").change(()=>{
+   let selected = $("#selecionar-marcador").children("option:selected").val();
+   $("tr").hide();
+   $(`.${selected}`).show();
+});

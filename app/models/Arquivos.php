@@ -35,6 +35,13 @@ class Arquivos extends Model
         return $arquivos;
     }
 
+    public static function aletrarMarcador($data)
+    {
+        $dados['marcador'] = $data['marcador'];
+
+        App::get('database')->update(static::$table, $dados, $where = ['id', $data['id']]);
+    }
+
     public static function listaPasta()
     {
         if(file_exists("public/files/".$_SESSION['cnpj']."/".$_SESSION['sirius'])){

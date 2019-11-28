@@ -32,11 +32,18 @@
                                     <div class="col-md-12">
 
                                         <table id="tabelaArquivos" class="display compact">
+                                        <label for="selecionar-marcador">Filtrar por marcador</label>
+                                        <select name="" class="form-control col-md-2" id="selecionar-marcador">
+                                            <?php foreach($marcadores as $marcador): ?>
+                                                <option value="<?=$marcador->id;?>"><?=$marcador->nome;?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                             <thead>
                                                 <tr>
                                                     <th>#Id</th>
                                                     <th>Nome</th>
                                                     <th>Status</th>
+                                                    <th>Marcador</th>
                                                     <th>Exibir</th>
                                                     <th>Arquivar</th>
                                                 </tr>
@@ -48,10 +55,27 @@
 
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <tr style="font-size:13px;" id="arquivo-<?=$arquivo->id; ?>">
+                                                                <tr style="font-size:13px;" class="<?=$arquivo->marcadorId;?>" id="arquivo-<?=$arquivo->id; ?>">
                                                                     <td><b><?=$arquivo->id;?></b></td>
                                                                     <td><b><?=$arquivo->nome; ?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
+                                                                    <td>
+                                                                        <div id="marker-<?=$arquivo->id;?>" style="display:none;" class="marker-dropdown">
+                                                                            <ul style="margin:0px !important;">
+                                                                                    <li><b>Marcadores</b></li>
+                                                                                    <hr style="margin:0px !important;">
+                                                                                <?php foreach($marcadores as $marcador): ?>
+                                                                                    <a onclick="trocarMarcador(this);" id="<?=$arquivo->id;?>/<?=$marcador->nome;?>" href="#"><li><?=$marcador->nome;?></li></a>
+                                                                                    <hr style="margin:0px !important;">
+                                                                                <?php endforeach; ?>
+                                                                                    <a class="marker-close" href="#"><li><b>CANCELAR</b></li></a>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <?=$arquivo->marcador;?></span>
+                                                                        <a style="color:green;font-size:26px;" id="<?=$arquivo->id;?>" onclick="marker(this);" href="#">
+                                                                        <i class="fa fa-angle-down"></i></a>
+                                                                    </td>
+                                                                    
                                                                     <td>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" onclick="marcarLido(this);" href="public/files/<?=$_SESSION['cnpj'];?>/<?=$_SESSION['sirius'];?>/<?=$arquivo->nome;?>">
                                                                             <img src="public/assets/img/abrir.png" width="30px">

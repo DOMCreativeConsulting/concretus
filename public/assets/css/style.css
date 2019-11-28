@@ -204,3 +204,23 @@ th, td{
     color:white !important;
     text-align:center;
 }
+
+.marker-dropdown{
+    position:absolute;
+    background-color:white;
+    border:1px solid grey;
+}
+
+.marker-dropdown ul{
+    list-style-type: none;
+    width:100px !important;
+}
+
+.marker-dropdown li{
+    padding:1%;
+}
+
+.marker-dropdown li:hover{
+    background-color:green;
+    color:white;
+}

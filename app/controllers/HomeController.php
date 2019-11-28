@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\models\Cliente;
 use App\models\Arquivos;
 use App\models\User;
+use App\models\Marcadores;
 
 class HomeController
 {
@@ -25,6 +26,8 @@ class HomeController
         $arquivos_atuais = Arquivos::listaPasta();
 
         $arquivos_salvos = Arquivos::buscarSirius();
+
+        $marcadores = Marcadores::buscar();
 
         $arquivos = [];
 
@@ -49,7 +52,15 @@ class HomeController
             return view('cadastrar-email');
         }
 
-        return view("user-index", compact('arquivos'));
+        foreach($arquivos as $arquivo){
+            foreach($marcadores as $marcador){
+                if($marcador->nome == $arquivo->marcador){
+                    $arquivo->marcadorId = $marcador->id;
+                }
+            }
+        }
+
+        return view("user-index", compact('arquivos', 'marcadores'));
     }
 
 }
