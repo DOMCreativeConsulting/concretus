@@ -54,8 +54,8 @@ class HomeController
 
         foreach($arquivos as $arquivo){
             foreach($marcadores as $marcador){
-                if($marcador->nome == $arquivo->marcador){
-                    $arquivo->marcadorId = $marcador->id;
+                if($marcador->id == $arquivo->marcadorId){
+                    $arquivo->marcador = $marcador->nome;
                 }
             }
         }

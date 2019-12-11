@@ -1,13 +1,49 @@
+// TRIGGERS
+
 $("#marcador").submit(()=>{
-    event.preventDefault()
-    let dados = $("#marcador").serialize()
-    let nome = $("#marcador-nome").val()
-    $.post('cadastrar-marcadores', dados)
-    .done(()=>{
-        $(".lista-marcadores").append(`<li>${nome}<a onclick="atualize();" href="javascript:void(0);"><span class="delete-marker"><i class="fa fa-trash"></i></span></a></li>`)
-        exibirSucesso()
-    })
+    cadastrarMarcador()
 })
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
+
+$(".marker-close").click(()=>{
+    $(".marker-dropdown").hide(200)
+})
+
+$("#selecionar-marcador").change(()=>{
+    if($("#selecionar-marcador").children("option:selected").val() == 'todos'){
+        $("tr").show()
+    }else{
+        let selected = $("#selecionar-marcador").children("option:selected").val()
+        $("tr").hide()
+        $(`.${selected}`).show()
+    }
+})
+
+// FUNCTIONS
+
+function marker(obj)
+{
+    id = obj.id
+
+    $(`#marker-${id}`).toggle(200)
+}
+
+function trocarMarcador(obj)
+{
+    let retorno = obj.id.split('/')
+
+    let id = retorno[0]
+    let marcador = retorno[1]
+
+    let dados = {id: id, marcadorId: marcador}
+
+    $.post('trocar-marcador', dados)
+    $(`#marker-${id}`).toggle(200)
+    location.reload()
+}
 
 function deletar(obj)
 {
@@ -19,7 +55,7 @@ function deletar(obj)
     let dados = {id: id}
     $.post('deletar-marcador', dados)
     .done(()=>{
-        $(`#marcador-${id}`).fadeOut(300)
+        location.reload()
     })
 }
 
@@ -39,7 +75,10 @@ function exibirSucesso()
     }, 1500)
 }
 
-function addMarker()
+function cadastrarMarcador()
 {
-    alert("adicionando marcador")
+    event.preventDefault()
+    let dados = $("#marcador").serialize()
+    $.post('cadastrar-marcadores', dados)
+    .done(() => { location.reload() })
 }

@@ -37,7 +37,7 @@ class Arquivos extends Model
 
     public static function aletrarMarcador($data)
     {
-        $dados['marcador'] = $data['marcador'];
+        $dados['marcadorId'] = $data['marcadorId'];
 
         App::get('database')->update(static::$table, $dados, $where = ['id', $data['id']]);
     }

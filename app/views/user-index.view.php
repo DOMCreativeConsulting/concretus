@@ -65,20 +65,27 @@
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
                                                                     <td>
                                                                         <div id="marker-<?=$arquivo->id;?>" style="display:none;" class="marker-dropdown">
+                                                                            <a class="marker-close" href="#">
+                                                                                <div style="background-color:#444; color:white; padding:3%;">CANCELAR</div>
+                                                                            </a>
                                                                             <ul class="marcadores" style="margin:0px !important;">
                                                                                     <li><b>Marcadores</b></li>
                                                                                     <hr style="margin:0px !important;">
                                                                                 <?php foreach($marcadores as $marcador): ?>
-                                                                                    <a onclick="trocarMarcador(this);" id="<?=$arquivo->id;?>/<?=$marcador->nome;?>" href="#"><li><?=$marcador->nome;?></li></a>
+                                                                                    <a onclick="trocarMarcador(this);" id="<?=$arquivo->id;?>/<?=$marcador->id;?>" href="#"><li><?=$marcador->nome;?><a id="<?=$marcador->id;?>" onclick="deletar(this);" style="z-index:999;float:right;color:red;" href="#"><i class="fa fa-trash"></i></a></li></a>
                                                                                     <hr style="margin:0px !important;">
                                                                                 <?php endforeach; ?>
-                                                                                    <a class="marker-close" data-toggle="modal" data-target="#exampleModal" href="#"><li><b>+ ADICIONAR</b></li></a>
-                                                                                    <hr style="margin:0px !important;">
-                                                                                    <a class="marker-close" href="#"><li><b>CANCELAR</b></li></a>
                                                                             </ul>
+                                                                            <a class="marker-close" data-toggle="modal" data-target="#exampleModal" href="#">
+                                                                                <div style="background-color:green; color:white; padding:3%;">ADICIONAR</div>
+                                                                            </a>
                                                                         </div>
-                                                                        <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <?=$arquivo->marcador;?></span>
-                                                                        <a style="color:green;font-size:26px;" id="<?=$arquivo->id;?>" onclick="marker(this);" href="#">
+                                                                        <?php if(isset($arquivo->marcador)): ?>
+                                                                            <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <?=$arquivo->marcador;?></span>
+                                                                        <?php else: ?>
+                                                                            <span>Nenhum</span>
+                                                                        <?php endif; ?>
+                                                                        <a style="color:green;font-size:26px;" id="<?=$arquivo->id;?>" onclick="marker(this);" href="javascript:void(0);">
                                                                         <i class="fa fa-angle-down"></i></a>
                                                                     </td>
                                                                     
@@ -117,12 +124,4 @@
     <!-- /.content -->
 <?php include 'app/views/partials/footer.php'; ?>
 <script src="public/assets/js/arquivos.js"></script>
-<<<<<<< HEAD
 <script src="public/assets/js/marcadores.js"></script>
-=======
-<script>
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-</script>
->>>>>>> c3a2db68adc60dbc40f080d0b2415efaf6e0e702
