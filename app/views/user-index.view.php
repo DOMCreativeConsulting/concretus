@@ -9,6 +9,9 @@
     margin-top: 55px;
 }
 </style>
+
+<?php require 'app/views/partials/marcadores-modal.php'; ?>
+
 <div id="user-index" class="right-panel">
     <div class="clearfix">
         <?php include 'app/views/partials/header.php'; ?>
@@ -21,7 +24,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h2 class="title"><i class="fa fa-file"></i> Lista de Arquivos <br /><small style="font-size:15px;">Caixa de Entrada / <a href="user-arquivados">Arquivados</a></small></h2>
@@ -68,6 +71,8 @@
                                                                                     <a onclick="trocarMarcador(this);" id="<?=$arquivo->id;?>/<?=$marcador->nome;?>" href="#"><li><?=$marcador->nome;?></li></a>
                                                                                     <hr style="margin:0px !important;">
                                                                                 <?php endforeach; ?>
+                                                                                    <a class="marker-close" data-toggle="modal" data-target="#exampleModal" href="#"><li><b>+ ADICIONAR</b></li></a>
+                                                                                    <hr style="margin:0px !important;">
                                                                                     <a class="marker-close" href="#"><li><b>CANCELAR</b></li></a>
                                                                             </ul>
                                                                         </div>
@@ -111,3 +116,8 @@
     <!-- /.content -->
 <?php include 'app/views/partials/footer.php'; ?>
 <script src="public/assets/js/arquivos.js"></script>
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
