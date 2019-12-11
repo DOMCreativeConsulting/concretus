@@ -100,10 +100,12 @@ $(".marker-close").click(()=>{
     $(".marker-dropdown").hide(200);
 });
 
-$("tr .Mais um").hide(1000);
-
 $("#selecionar-marcador").change(()=>{
-   let selected = $("#selecionar-marcador").children("option:selected").val();
-   $("tr").hide();
-   $(`.${selected}`).show();
+    if($("#selecionar-marcador").children("option:selected").val() == 'todos'){
+        $("tr").show();
+    }else{
+        let selected = $("#selecionar-marcador").children("option:selected").val();
+        $("tr").hide();
+        $(`.${selected}`).show();
+    }
 });

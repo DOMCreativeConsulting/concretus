@@ -38,3 +38,8 @@ function exibirSucesso()
 
     }, 1500)
 }
+
+function addMarker()
+{
+    alert("adicionando marcador")
+}

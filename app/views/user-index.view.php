@@ -34,6 +34,7 @@
                                         <table id="tabelaArquivos" class="display compact">
                                         <label for="selecionar-marcador">Filtrar por marcador</label>
                                         <select name="" class="form-control col-md-2" id="selecionar-marcador">
+                                                <option value="todos">Todos</option>
                                             <?php foreach($marcadores as $marcador): ?>
                                                 <option value="<?=$marcador->id;?>"><?=$marcador->nome;?></option>
                                             <?php endforeach; ?>
@@ -61,14 +62,16 @@
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
                                                                     <td>
                                                                         <div id="marker-<?=$arquivo->id;?>" style="display:none;" class="marker-dropdown">
-                                                                            <ul style="margin:0px !important;">
+                                                                            <ul class="marcadores" style="margin:0px !important;">
                                                                                     <li><b>Marcadores</b></li>
                                                                                     <hr style="margin:0px !important;">
                                                                                 <?php foreach($marcadores as $marcador): ?>
                                                                                     <a onclick="trocarMarcador(this);" id="<?=$arquivo->id;?>/<?=$marcador->nome;?>" href="#"><li><?=$marcador->nome;?></li></a>
                                                                                     <hr style="margin:0px !important;">
                                                                                 <?php endforeach; ?>
-                                                                                    <a class="marker-close" href="#"><li><b>CANCELAR</b></li></a>
+                                                                                    <a style="color:black !important;" onclick="addMarker();" href="#"><li><b>ADICIONAR +</b></li></a>
+                                                                                    <hr style="margin:0px !important;">
+                                                                                    <a style="color:black !important;" class="marker-close" href="#"><li><b>CANCELAR</b></li></a>
                                                                             </ul>
                                                                         </div>
                                                                         <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <?=$arquivo->marcador;?></span>
@@ -111,3 +114,4 @@
     <!-- /.content -->
 <?php include 'app/views/partials/footer.php'; ?>
 <script src="public/assets/js/arquivos.js"></script>
+<script src="public/assets/js/marcadores.js"></script>
