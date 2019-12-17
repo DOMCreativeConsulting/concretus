@@ -11,7 +11,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" name="userId" value="<?=$_SESSION['id']?>">   
+                    <input type="hidden" name="clienteId" value="<?=$_SESSION['clienteId']?>">   
                     <label for="nome">Nome: </label>
                     <input name="nome" type="text" class="form-control">
                 </div>

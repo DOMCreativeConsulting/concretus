@@ -96,13 +96,22 @@ class UsersController extends Controller
     {
         $usuario = User::encontrar($_POST);
 
-        $marcadores = Marcadores::buscar();
-
         $clienteId['id'] = $usuario[0]->clienteId;
+
+        $dados['clienteId'] = $usuario[0]->clienteId;
+        $marcadores = Marcadores::encontrar($dados);
 
         $cliente = Cliente::encontrar($clienteId);
 
         $arquivos = Arquivos::buscar();
+
+        foreach($arquivos as $arquivo){
+            foreach($marcadores as $marcador){
+                if($marcador->id == $arquivo->marcadorId){
+                    $arquivo->marcador = $marcador->nome;
+                }
+            }
+        }
 
         return view('simulacao', compact('arquivos', 'cliente', 'usuario', 'marcadores'));
     }

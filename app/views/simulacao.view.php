@@ -67,8 +67,12 @@
                                                                                     <a class="marker-close" href="#"><li><b>CANCELAR</b></li></a>
                                                                             </ul>
                                                                         </div>
-                                                                        <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <?=$arquivo->marcador;?></span>
-                                                                        <a style="color:green;font-size:26px;" id="<?=$arquivo->id;?>" onclick="marker(this);" href="#">
+                                                                        <?php if(isset($arquivo->marcador)): ?>
+                                                                            <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <?=$arquivo->marcador;?></span>
+                                                                        <?php else: ?>
+                                                                            <span>Nenhum</span>
+                                                                        <?php endif; ?>
+                                                                        <a style="color:green;font-size:26px;" id="<?=$arquivo->id;?>" onclick="alert('Somente o usuário pode alterar seus marcadores!');" href="#">
                                                                         <i class="fa fa-angle-down"></i></a>
                                                                     </td>
                                                                     <td>

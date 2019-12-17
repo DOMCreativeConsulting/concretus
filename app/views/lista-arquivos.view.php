@@ -46,7 +46,13 @@
                                                                     <td><b><?=$arquivo->nome; ?></b></td>
                                                                     <td><b><?=$arquivo->usuario; ?></b></td>
                                                                     <td id="leitura-<?=$arquivo->id;?>"><?=$arquivo->lido ? '<b>Lido</b>' : '<b>Não lido</b>'; ?></td>
-                                                                    <td><b><?=$arquivo->marcador;?></b></td>
+                                                                    <td>
+                                                                        <?php if(isset($arquivo->marcador)): ?>
+                                                                            <span class="marker-value-<?=$arquivo->id;?>"><i class="fa fa-tag"></i> <b><?=$arquivo->marcador;?></b></span>
+                                                                        <?php else: ?>
+                                                                            <span><b>Nenhum</b></span>
+                                                                        <?php endif; ?>
+                                                                    </td>
                                                                     <td><b>
                                                                         <a target="_blank" id="<?=$arquivo->id;?>" href="public/files/<?=$arquivo->cnpj;?>/<?=$arquivo->sirius;?>/<?=$arquivo->nome;?>">
                                                                             <img src="public/assets/img/abrir.png" width="30px">

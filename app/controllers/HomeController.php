@@ -27,7 +27,8 @@ class HomeController
 
         $arquivos_salvos = Arquivos::buscarSirius();
 
-        $marcadores = Marcadores::buscar();
+        $dados['clienteId'] = $_SESSION['clienteId'];
+        $marcadores = Marcadores::encontrar($dados);
 
         $arquivos = [];
 

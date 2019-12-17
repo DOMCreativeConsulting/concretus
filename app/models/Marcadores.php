@@ -16,6 +16,13 @@ class Marcadores extends Model
         return $resultado;
     }
 
+    public static function encontrar($dados)
+    {
+        $resultado = App::get('database')->selectWhere(static::$table, $dados);
+
+        return $resultado;
+    }
+
     public static function cadastrar($dados)
     {
         return App::get('database')->insert(static::$table, $dados);

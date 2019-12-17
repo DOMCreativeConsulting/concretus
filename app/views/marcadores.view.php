@@ -15,7 +15,7 @@
                                 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h2 class="title"><i class="fa fa-tag"></i> Marcadores</h2>
+                                        <h2 class="title"><i class="fa fa-tag"></i> Todos marcadores</h2>
                                     </div>
                                 </div>
 

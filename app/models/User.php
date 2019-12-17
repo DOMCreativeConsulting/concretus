@@ -40,6 +40,8 @@ class User extends Model
 
             $_SESSION['sirius'] = $result[0]->sirius;
             $_SESSION['cnpj'] = $retorno[0]->cnpj;
+            $_SESSION['cliente'] = $retorno[0]->nome;
+            $_SESSION['clienteId'] = $retorno[0]->id;
 
         }
 
