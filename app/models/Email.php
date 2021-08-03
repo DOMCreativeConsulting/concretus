@@ -21,8 +21,8 @@ class Email extends Model
             // // used only when SMTP requires authentication  
             $mail->SMTPAuth = true;
             $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->Username   = 'lucasdelimamonteiro@gmail.com';                     // SMTP username
-            $mail->Password   = 'nuclear00123';                               // SMTP password
+            $mail->Username   = 'email@gmail.com';                     // SMTP username
+            $mail->Password   = 'senha';                               // SMTP password
             $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 465;                                    // TCP port to connect to
             //Recipients
